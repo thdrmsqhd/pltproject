@@ -54,4 +54,15 @@ public class QuotationControllerImpl implements QuotationController {
 		return list;
 	}
 	
+	@RequestMapping(value="/viewOneQuotation.do", method = RequestMethod.GET)
+	@Override
+	public ModelAndView viewOneQuotation(@RequestParam("no") String no, HttpServletRequest request, HttpServletResponse response) {
+		//해당 글 번호로 vo를 조회 하여 화면에 견적서 , 발주요청서, 컨설팅 요청서 출력
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+		QuotationVO quotationVO = service.viewOneQuotation(no);
+		mav.addObject("quotationVO", quotationVO);
+		return null;
+	}
+	
 }

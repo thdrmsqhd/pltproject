@@ -17,4 +17,6 @@ public interface QuotationController {
 
 	ModelAndView insertQuotationView(String manuId, HttpServletRequest request, HttpServletResponse response);
 
+	ModelAndView viewOneQuotation(String manuId, HttpServletRequest request, HttpServletResponse response);
+
 }
