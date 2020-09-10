@@ -23,4 +23,9 @@ public class QuotationDAOImpl implements QuotationDAO {
 		System.out.println("Quotation List DAO");
 		return sqlSession.selectList("mapper.quotation.quotationList");
 	}
+	@Override
+	public QuotationVO viewOneQuotation(String no) {
+		System.out.println("Quotation view One Quotation");
+		return sqlSession.selectOne("mapper.quotation.quotationOne", no);
+	}
 }

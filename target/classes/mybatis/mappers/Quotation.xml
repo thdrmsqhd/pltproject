@@ -29,4 +29,10 @@
 		]]>
 	</select>
 	
+	<select id="quotationOne" resultMap="quotationVO" parameterType="String">
+		<![CDATA[
+			select * from Quotation where id=#{no}
+		]]>
+	</select>
+	
 </mapper>

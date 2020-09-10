@@ -10,4 +10,6 @@ public interface QuotationService {
 
 	List<QuotationVO> quotationList();
 
+	QuotationVO viewOneQuotation(String no);
+
 }

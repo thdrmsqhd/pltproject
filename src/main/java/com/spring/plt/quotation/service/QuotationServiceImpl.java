@@ -23,4 +23,9 @@ public class QuotationServiceImpl implements QuotationService{
 	public List<QuotationVO> quotationList(){
 		return dao.quotationList();
 	}
+
+	@Override
+	public QuotationVO viewOneQuotation(String no) {
+		return dao.viewOneQuotation(no);
+	}
 }
