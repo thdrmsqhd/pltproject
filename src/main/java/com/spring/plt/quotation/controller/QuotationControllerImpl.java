@@ -62,7 +62,7 @@ public class QuotationControllerImpl implements QuotationController {
 		ModelAndView mav = new ModelAndView(viewName);
 		QuotationVO quotationVO = service.viewOneQuotation(no);
 		mav.addObject("quotationVO", quotationVO);
-		return null;
+		return mav;
 	}
 	
 }

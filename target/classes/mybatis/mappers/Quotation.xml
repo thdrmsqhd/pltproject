@@ -29,9 +29,9 @@
 		]]>
 	</select>
 	
-	<select id="quotationOne" resultMap="quotationVO" parameterType="String">
+	<select id="quotationOne" resultType="QuotationVO" parameterType="String">
 		<![CDATA[
-			select * from Quotation where id=#{no}
+			select * from Quotation where no=#{no}
 		]]>
 	</select>
 	
