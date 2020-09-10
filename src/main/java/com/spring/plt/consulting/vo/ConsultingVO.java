@@ -14,6 +14,12 @@ public class ConsultingVO {
 	private String reqDate;
 	private int status;
 	
+	@Override
+	public String toString() {
+		return "ConsultingVO [no=" + no + ", compId=" + compId + ", expId=" + expId + ", title=" + title + ", content="
+				+ content + ", fileName=" + fileName + ", price=" + price + ", reqDate=" + reqDate + ", status="
+				+ status + "]";
+	}
 	public int getNo() {
 		return no;
 	}

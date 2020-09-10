@@ -36,6 +36,7 @@ public class ConusltingControllerImpl implements ConsultingController {
 	public ModelAndView insertConsulting(@ModelAttribute ConsultingVO ConsultingVO, HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("insert Consulting Controller");
 		System.out.println(ConsultingVO.getFileName());
+		System.out.println(ConsultingVO);
 		service.insertConsulting(ConsultingVO);
 		String viewName = "redirect:/viewExpert?id=" + ConsultingVO.getExpId();
 		ModelAndView mav = new ModelAndView(viewName);
