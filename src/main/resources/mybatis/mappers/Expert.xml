@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.expert">
+	<resultMap type="ExpertVO" id="expertResult">
+		<result property="id" column="id"/>
+		<result property="pwd" column="pwd"/>
+		<result property="expName" column="expName"/>
+		<result property="expEmail" column="expEmail"/>
+		<result property="expBizField" column="expBizField"/>
+		<result property="expTel" column="expTel"/>
+		<result property="expCareer" column="expCareer"/>
+		<result property="expCertif" column="expCertif"/>
+		<result property="expDetail" column="expDetail"/>
+		<result property="expAuth" column="expAuth"/>
+		<result property="type" column="type"/>
+	</resultMap>
+	
+	<select id="serchByName" resultMap="expertResult" parameterType="String">
+		<![CDATA[
+			select * from Expert where expName like #{name}||'%'
+		]]>
+	</select>
+	
+	<select id="serchByType" resultMap="expertResult" parameterType="String">
+		<![CDATA[
+			select * from expert where expbizfield=#{type}
+		]]>
+	</select>
+	
+	<select id="viewExpert" resultType="ExpertVO" parameterType="String">
+		<![CDATA[
+			select * from expert where id=#{id}
+		]]>
+	</select>
+	
+	<select id="allExpert" resultMap="expertResult">
+		<![CDATA[
+			select * from expert
+		]]>
+	</select>
+</mapper>
