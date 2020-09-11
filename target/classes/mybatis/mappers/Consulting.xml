@@ -32,9 +32,9 @@
 		]]>
 	</select>
 	
-	<select id="alarmConsulting" resultMap="ConsultingResult" parameterType="String">
+	<select id="alarmConsulting" resultType="String" parameterType="String">
 		<![CDATA[
-			select * from Consulting where status=#{status}
+			select count(*) from Consulting where status= 0 and compId = #{compId}
 		]]>
 	</select>
 	

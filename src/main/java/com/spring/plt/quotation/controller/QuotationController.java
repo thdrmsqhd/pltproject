@@ -19,6 +19,6 @@ public interface QuotationController {
 
 	ModelAndView viewOneQuotation(String manuId, HttpServletRequest request, HttpServletResponse response);
 
-	List<QuotationVO> alarmConsulting(String status, HttpServletRequest request, HttpServletResponse response);
+	List<QuotationVO> alarmQuotation(String compId, HttpServletRequest request, HttpServletResponse response);
 
 }

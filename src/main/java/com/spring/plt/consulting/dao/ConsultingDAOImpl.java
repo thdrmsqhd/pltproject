@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.plt.consulting.vo.ConsultingVO;
+import com.spring.plt.quotation.vo.QuotationVO;
 
 @Repository
 public class ConsultingDAOImpl implements ConsultingDAO{
@@ -28,5 +29,10 @@ public class ConsultingDAOImpl implements ConsultingDAO{
 	public ConsultingVO viewOneConsulting(String no) {
 		System.out.println("Consulting view DAO");
 		return sqlSession.selectOne("mapper.consulting.viewOneConsulting",no);
+	}
+	@Override
+	public List<QuotationVO> alarmConsulting(String compId) {
+		System.out.println("Consulting alarm DAO");
+		return sqlSession.selectList("mapper.consulting.alarmConsulting",compId);
 	}
 }

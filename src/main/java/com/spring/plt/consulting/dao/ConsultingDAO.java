@@ -3,6 +3,7 @@ package com.spring.plt.consulting.dao;
 import java.util.List;
 
 import com.spring.plt.consulting.vo.ConsultingVO;
+import com.spring.plt.quotation.vo.QuotationVO;
 
 public interface ConsultingDAO {
 
@@ -11,5 +12,7 @@ public interface ConsultingDAO {
 	List<ConsultingVO> ConsultingList();
 
 	ConsultingVO viewOneConsulting(String no);
+
+	List<QuotationVO> alarmConsulting(String compId);
 
 }

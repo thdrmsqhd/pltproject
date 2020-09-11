@@ -30,7 +30,7 @@ public class QuotationServiceImpl implements QuotationService{
 	}
 	
 	@Override
-	public List<QuotationVO> alarmConsulting(String compId){
-		return dao.alarmConsulting(compId);
+	public List<QuotationVO> alarmQuotation(String compId){
+		return dao.alarmQuotation(compId);
 	}
 }
