@@ -12,4 +12,6 @@ public interface QuotationDAO {
 
 	QuotationVO viewOneQuotation(String no);
 
+	List<QuotationVO> alarmConsulting(String compId);
+
 }

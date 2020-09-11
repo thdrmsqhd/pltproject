@@ -25,4 +25,17 @@
 			select * from Consulting
 		]]>
 	</select>
+	
+	<select id="viewOneConsulting" resultType="ConsultingVO" parameterType="String">
+		<![CDATA[
+			select * from Consulting where no=#{no}
+		]]>
+	</select>
+	
+	<select id="alarmConsulting" resultMap="ConsultingResult" parameterType="String">
+		<![CDATA[
+			select * from Consulting where status=#{status}
+		]]>
+	</select>
+	
 </mapper>

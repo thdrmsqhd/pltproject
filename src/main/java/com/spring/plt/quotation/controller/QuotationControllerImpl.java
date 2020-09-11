@@ -65,4 +65,13 @@ public class QuotationControllerImpl implements QuotationController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/alarmConsulting.do", method = RequestMethod.GET)
+	@Override
+	@ResponseBody
+	public List<QuotationVO> alarmConsulting(@RequestParam("compId") String compId, HttpServletRequest request, HttpServletResponse response){
+		System.out.println("Quotation List Controller");
+		List<QuotationVO> list = service.alarmConsulting(compId);
+		System.out.println(list);
+		return list;
+	}
 }

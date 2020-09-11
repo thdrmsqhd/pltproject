@@ -65,6 +65,7 @@ public class ConusltingControllerImpl implements ConsultingController {
 		ModelAndView mav = new ModelAndView(viewName);
 		ConsultingVO ConsultingVO = service.viewOneConsulting(no);
 		mav.addObject("ConsultingVO", ConsultingVO);
+		System.out.println(mav);
 		return mav;
 	}
 }
