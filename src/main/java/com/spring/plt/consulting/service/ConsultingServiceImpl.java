@@ -23,4 +23,9 @@ public class ConsultingServiceImpl implements ConsultingService {
 	public List<ConsultingVO> ConsultingList(){
 		return dao.ConsultingList();
 	}
+
+	@Override
+	public ConsultingVO viewOneConsulting(String no) {
+		return dao.viewOneConsulting(no);
+	}
 }

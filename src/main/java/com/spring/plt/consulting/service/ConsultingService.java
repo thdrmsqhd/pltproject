@@ -10,4 +10,6 @@ public interface ConsultingService {
 
 	List<ConsultingVO> ConsultingList();
 
+	ConsultingVO viewOneConsulting(String no);
+
 }

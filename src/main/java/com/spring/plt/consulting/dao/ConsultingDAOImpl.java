@@ -24,4 +24,9 @@ public class ConsultingDAOImpl implements ConsultingDAO{
 		System.out.println("Consulting List DAO");
 		return sqlSession.selectList("mapper.consulting.ConsultingList");
 	}
+	@Override
+	public ConsultingVO viewOneConsulting(String no) {
+		System.out.println("Consulting view DAO");
+		return sqlSession.selectOne("mapper.consulting.viewOneConsulting",no);
+	}
 }

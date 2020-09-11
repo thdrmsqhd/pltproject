@@ -17,4 +17,6 @@ public interface ConsultingController {
 
 	List<ConsultingVO> ConsultingList(HttpServletRequest request, HttpServletResponse responset);
 
+	ModelAndView viewOneConsulting(String no, HttpServletRequest request, HttpServletResponse response);
+
 }
