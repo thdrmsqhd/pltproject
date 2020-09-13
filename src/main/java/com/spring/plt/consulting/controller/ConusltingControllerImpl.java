@@ -16,11 +16,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.plt.consulting.service.ConsultingService;
 import com.spring.plt.consulting.vo.ConsultingVO;
+import com.spring.plt.quotation.vo.QuotationVO;
 
 @Controller
 public class ConusltingControllerImpl implements ConsultingController {
 	@Autowired
 	ConsultingService service;
+	
+	@Autowired
+	ConsultingVO ConsultingVO;
+	
 	@RequestMapping(value = "/insertConsultingForm.do", method = RequestMethod.GET)
 	@Override
 	public ModelAndView insertConsultingView(@RequestParam("expId") String expId, HttpServletRequest request,HttpServletResponse response) {
@@ -49,6 +54,28 @@ public class ConusltingControllerImpl implements ConsultingController {
 	public List<ConsultingVO> ConsultingList(HttpServletRequest request, HttpServletResponse responset){
 		System.out.println("Consulting List Controller");
 		List<ConsultingVO> list = service.ConsultingList();
+		System.out.println(list);
+		return list;
+	}
+	
+	@RequestMapping(value="/viewOneConsulting.do", method = RequestMethod.GET)
+	@Override
+	public ModelAndView viewOneConsulting(@RequestParam("no") String no, HttpServletRequest request, HttpServletResponse response) {
+		//해당 글 번호로 vo를 조회 하여 화면에 견적서 , 발주요청서, 컨설팅 요청서 출력
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+		ConsultingVO ConsultingVO = service.viewOneConsulting(no);
+		mav.addObject("ConsultingVO", ConsultingVO);
+		System.out.println(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/alarmConsulting.do", method = RequestMethod.GET)
+	@Override
+	@ResponseBody
+	public List<QuotationVO> alarmConsulting(@RequestParam("compId") String compId, HttpServletRequest request, HttpServletResponse response){
+		System.out.println("Quotation List Controller");
+		List<QuotationVO> list = service.alarmConsulting(compId);
 		System.out.println(list);
 		return list;
 	}

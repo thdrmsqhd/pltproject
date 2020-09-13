@@ -12,4 +12,6 @@ public interface QuotationService {
 
 	QuotationVO viewOneQuotation(String no);
 
+	List<QuotationVO> alarmQuotation(String compId);
+
 }

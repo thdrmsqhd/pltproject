@@ -47,7 +47,7 @@
                         <div class="wrapper px-md-4">
                             <div class="row no-gutters">
                                 <div class="contact-wrap w-100 p-md-5 p-4">
-                                    <h3 class="mb-4">견  적  서</h3>
+                                    <h3 class="mb-4">컨  설  팅</h3>
                                     <form method="POST" class="contactForm">
                                         <div class="row">
                                         	<div class="col-md-6">
@@ -59,18 +59,7 @@
 	                                                        class="random"
 	                                                        name="no"
 	                                                        style="border:none;"
-	                                                        value="${quotationVO.no }" readonly />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div style="float:left"><label class="label" for="tempSave">임시저장</label></div>
-                                                    <div style="float:left; padding-left: 2%">
-                                                    	<input
-	                                                        type="checkbox"
-	                                                        name="tempSave"
-	                                                        value="false" readonly />
+	                                                        value="${ConsultingVO.no }" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -84,39 +73,36 @@
                                                         type="text"
                                                         class="form-control"
                                                         name="compId"
-                                                        value="${quotationVO.compId }" readonly><!--requeset.getSession("userId") 으로 차후 교체-->
+                                                        value="${ConsultingVO.compId }" readonly><!--requeset.getSession("userId") 으로 차후 교체-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="label" for="manuId">견적업체</label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        name="manuId"
-                                                        value="${quotationVO.manuId }" readonly />
-                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="label" for="item">견적품목</label>
+                                                    <label class="label" for="expId">담당자</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        name="item"
-                                                        value="${quotationVO.item }"
-                                                        placeholder="item">
+                                                        name="expId"
+                                                        value="${ConsultingVO.expId }" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="title">제목</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        name="title"
+                                                        value="${ConsultingVO.title }"
+                                                        placeholder="title">
                                                 </div>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="label" for="quantity">수량</label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        name="quantity"
-                                                        value="${quotationVO.quantity }"
-                                                        placeholder="수량">
+                                                    <label class="label" for="content">내용</label>
+                                                    <textarea class="form-control" name="content" rows="12">"${ConsultingVO.content }"</textarea>
                                                 </div>
 											</div>
 											<div class="col-md-1">
@@ -127,46 +113,17 @@
 													</div>
                                                 </div>
                                             </div>
-											<div class="col-md-5">
+											<div class="col-md-11">
                                                 <div class="form-group">
                                                     <label class="label" for="price">    </label>
                                                     <input
                                                         type="text"
                                                         class="form-control price"
                                                         name="price"
-                                                        value="${quotationVO.price }"
+                                                        value="${ConsultingVO.price }"
                                                         placeholder="가격">
                                                 </div>
 											</div>
-											<div class="col-md-1">
-                                                <div class="form-group">
-                                                    <label class="label" for="subject">VAT</label>
-                                                    <div style="text-align:right; padding-right: 20px;">
-														<span>&#8361;</span>
-													</div>
-                                                </div>
-                                            </div>
-											<div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label class="label" for="vat">    </label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control vat"
-                                                        name="vat"
-                                                        value="" readonly />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="label" for="detail">Detail</label>
-													<input
-														type="text"
-                                                        name="detail"
-                                                        class="form-control"
-                                                        value="${quotationVO.detail }"
-                                                        placeholder="내용 상세"  />
-                                                </div>
-                                            </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="label" for="fileName">첨부</label>
@@ -174,32 +131,32 @@
 														type="text" 
                                                         name="fileName"
                                                         class="form-control"
-                                                        value="${quotationVO.fileName }"  />
+                                                        value="${ConsultingVO.fileName }"  />
                                                 </div>
                                             </div>
-                                            <c:if test="${member.type == 'startup'}">
+                                            <c:if test="${member.type == 'startup'}"><!-- request.getSession에서 user의 타입을 가져온다. -->
                                             	<div class="col-md-12">
 	                                                <div class="form-group">
-	                                                    <input type="submit" value="Quotation withdrawal" class="btn btn-primary">
+	                                                    <input type="submit" value="Consulting withdrawal" class="btn btn-primary">
 	                                                    <div class="submitting"></div>
 	                                                </div>
                                             	</div>
                                             </c:if>
-                                            <c:if test="${member.type == 'manufac'}">
+                                            <c:if test="${member.type == 'expert'}">
 	                                           	<div class="col-md-12">
 	                                               	<div class="form-group">
-	                                                   	<input type="submit" value="Quotation accept" class="btn btn-primary">
+	                                                   	<input type="submit" value="Consulting accept" class="btn btn-primary">
 	                                                   <div class="submitting"></div>
 	                                               	</div>
 	                                               	<div class="form-group">
-	                                                   	<input type="submit" value="Quotation reject" class="btn btn-primary">
+	                                                   	<input type="submit" value="Consulting reject" class="btn btn-primary">
 	                                                   <div class="submitting"></div>
 	                                               </div>
 	                                            </div>
                                             </c:if>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="submit" value="Send Quotation" class="btn btn-primary">
+                                                    <input type="submit" value="Send Consulting" class="btn btn-primary">
                                                     <div class="submitting"></div>
                                                 </div>
                                             </div>
@@ -234,18 +191,19 @@
         <script src="${contextPath }/resources/js/main.js"></script>
 		<script>
 			var form = document.querySelector(".contactForm")
+			console.log(form)
+
 			var btn = document.querySelector(".btn-primary")
-			
 			btn.addEventListener("click",function(e){
 				e.preventDefault()
 				var btnValue = e.target.value;
-				if(btnValue === "Quotation accept"){
+				if(btnValue === "Consulting accept"){
 					form.action = '';/*민선이 기능으로 가야함 상태 변경 기능*/
 					form.submit()
-				}else if(btnValue === "Quotation reject"){/*민선이 기능으로 가야함 상태 거절 기능*/
+				}else if(btnValue === "Consulting reject"){/*민선이 기능으로 가야함 상태 거절 기능*/
 					form.action = '';
 					form.submit()
-				}else if(btnValue === "Quotation withdrawal"){/*민선이 기능으로 가야함 상태 거절 기능*/
+				}else if(btnValue === "Consulting withdrawal"){/*민선이 기능으로 가야함 상태 거절 기능*/
 					form.action = '';
 					form.submit()
 				}else{

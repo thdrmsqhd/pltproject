@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.plt.consulting.vo.ConsultingVO;
+import com.spring.plt.quotation.vo.QuotationVO;
 
 public interface ConsultingController {
 
@@ -16,5 +17,9 @@ public interface ConsultingController {
 	ModelAndView insertConsultingView(String manuId, HttpServletRequest request, HttpServletResponse response);
 
 	List<ConsultingVO> ConsultingList(HttpServletRequest request, HttpServletResponse responset);
+
+	ModelAndView viewOneConsulting(String no, HttpServletRequest request, HttpServletResponse response);
+
+	List<QuotationVO> alarmConsulting(String compId, HttpServletRequest request, HttpServletResponse response);
 
 }

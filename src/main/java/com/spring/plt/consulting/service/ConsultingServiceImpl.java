@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.plt.consulting.dao.ConsultingDAO;
 import com.spring.plt.consulting.vo.ConsultingVO;
+import com.spring.plt.quotation.vo.QuotationVO;
 
 @Service
 public class ConsultingServiceImpl implements ConsultingService {
@@ -22,5 +23,15 @@ public class ConsultingServiceImpl implements ConsultingService {
 	@Override
 	public List<ConsultingVO> ConsultingList(){
 		return dao.ConsultingList();
+	}
+
+	@Override
+	public ConsultingVO viewOneConsulting(String no) {
+		return dao.viewOneConsulting(no);
+	}
+
+	@Override
+	public List<QuotationVO> alarmConsulting(String compId) {
+		return dao.alarmConsulting(compId);
 	}
 }
