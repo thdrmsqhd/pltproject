@@ -1,5 +1,6 @@
 package com.spring.plt.quotation.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +25,9 @@ public class QuotationControllerImpl implements QuotationController {
 	QuotationService service;
 	@RequestMapping(value = "/insertQuotationForm.do", method = RequestMethod.GET)
 	@Override
-	public ModelAndView insertQuotationView(@RequestParam("manuId") String manuId, HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView insertQuotationView(@RequestParam("manuId") String manuId, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		String viewName = (String) request.getAttribute("viewName");
 		System.out.println(viewName);
 		ModelAndView mav = new ModelAndView(viewName);
