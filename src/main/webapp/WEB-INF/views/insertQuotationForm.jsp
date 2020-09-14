@@ -70,7 +70,7 @@
                                                     	<input
 	                                                        type="checkbox"
 	                                                        name="tempSave"
-	                                                        value="false" readonly />
+	                                                        value=false readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -84,7 +84,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         name="compId"
-                                                        value="userID" readonly><!--requeset.getSession("userId") 으로 차후 교체-->
+                                                        value="op3838" readonly><!--requeset.getSession("userId") 으로 차후 교체-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

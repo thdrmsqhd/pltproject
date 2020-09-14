@@ -15,7 +15,7 @@ public interface QuotationController {
 
 	List<QuotationVO> quotationList(HttpServletRequest request, HttpServletResponse response);
 
-	ModelAndView insertQuotationView(String manuId, HttpServletRequest request, HttpServletResponse response);
+	ModelAndView insertQuotationView(String manuId, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 	ModelAndView viewOneQuotation(String manuId, HttpServletRequest request, HttpServletResponse response);
 
