@@ -3,6 +3,7 @@ package com.spring.platform.expSearch.dao;
 import java.util.List;
 
 import com.spring.platform.expert.vo.ExpertVO;
+import com.spring.platform.page.vo.PageVO;
 
 public interface ExpertDAO {
 
@@ -12,6 +13,8 @@ public interface ExpertDAO {
 
 	ExpertVO viewExpert(String id);
 
-	List<ExpertVO> allExpert();
+	int listCount();
+
+	List<ExpertVO> allExpert(PageVO pageVO);
 
 }

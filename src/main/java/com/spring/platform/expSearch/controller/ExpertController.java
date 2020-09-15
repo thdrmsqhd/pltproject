@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.platform.page.vo.PageVO;
+
 public interface ExpertController {
 
 	Map<Integer, Map<String, Object>> serchByExpertType(String type, HttpServletRequest request, HttpServletResponse response);
@@ -15,6 +17,8 @@ public interface ExpertController {
 
 	ModelAndView viewExpert(String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
-	ModelAndView allExpert(HttpServletRequest request, HttpServletResponse response);
+
+	ModelAndView allExpert(PageVO pageVO, String nowPage, String cntPage, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.platform.expSearch.service.ExpertService;
 import com.spring.platform.expert.vo.ExpertVO;
+import com.spring.platform.page.vo.PageVO;
 
 @Controller
 public class ExpertControllerImpl implements ExpertController {
@@ -31,15 +32,29 @@ public class ExpertControllerImpl implements ExpertController {
 	
 	@RequestMapping(value="/allExpert")
 	@Override//전체 출력
-	public ModelAndView allExpert(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView allExpert(PageVO pageVO, @RequestParam(value="nowPage",required = false) String nowPage, @RequestParam(value="cntPerPage", required = false) String cntPerPage, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
+		request.setCharacterEncoding("utf-8");
+        response.setContentType("html/text;charset=utf-8");
+        int total = service.listCount();
+        if(nowPage == null && cntPerPage == null) {
+            nowPage = "1";
+            cntPerPage = "9";
+        }else if(nowPage == null) {
+            nowPage = "1";
+        }else if(cntPerPage == null) {
+            cntPerPage = "9";
+        } //nowPage 현재 페이지, cntPerPage = 한페이지당 글 개수
+        System.out.println(cntPerPage + " " + nowPage);
+        pageVO = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
+
 		System.out.println(viewName);
 		System.out.println("expert Controller allExpert");
 		List<ExpertVO> expertList = new ArrayList<ExpertVO>();
-		expertList = service.allExpert();
+		expertList = service.allExpert(pageVO);
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("expertList", expertList);
-		System.out.println(mav);
+		mav.addObject("pageVO", pageVO);
 		return mav;
 	}
 	

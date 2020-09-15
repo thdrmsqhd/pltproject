@@ -58,7 +58,7 @@
             		<div class="block-27">
               			<ul>
                  			<c:if test="${pageVO.startPage != 1}">
-                   				<li><a href="${contextPath}/allManuFac?nowPage=${pageVO.startPage -1}&cntPerPage=${pageVO.cntPerPage}">&lt;</a></li>  //이전페이지
+                   				<li><a href="${contextPath}/allManuFac?nowPage=${pageVO.startPage -1}&cntPerPage=${pageVO.cntPerPage}">&lt;</a></li>
                				</c:if>
                				<c:forEach begin = "${pageVO.startPage}" end = "${pageVO.endPage}" var="idx">
 	                  			<c:choose>
@@ -71,7 +71,7 @@
 	                     		</c:choose>
                 			</c:forEach>
                 			<c:if test="${pageVO.endPage != pageVO.lastPage }">
-	                   			<li><a href="${contextPath }/allManuFac?nowPage=${idx+1}&cntPerPage=${pageVO.cntPerPage}">&gt;</a></li>
+	                   			<li><a href="${contextPath }/allManuFac?nowPage=${pageVO.endPage + 1}&cntPerPage=${pageVO.cntPerPage}">&gt;</a></li>
                 			</c:if>
               			</ul>
             		</div>

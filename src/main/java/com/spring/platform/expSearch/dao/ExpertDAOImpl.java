@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.platform.expert.vo.ExpertVO;
+import com.spring.platform.page.vo.PageVO;
 
 @Repository
 public class ExpertDAOImpl implements ExpertDAO {
@@ -35,8 +36,13 @@ public class ExpertDAOImpl implements ExpertDAO {
 	}
 	
 	@Override
-	public List<ExpertVO> allExpert(){
+	public List<ExpertVO> allExpert(PageVO pageVO){
 		System.out.println("expert DAO all");
-		return sqlSession.selectList("mapper.expert.allExpert");
+		return sqlSession.selectList("mapper.expert.allExpert",pageVO);
+	}
+
+	@Override
+	public int listCount() {
+		return sqlSession.selectOne("mapper.expert.listCount");
 	}
 }

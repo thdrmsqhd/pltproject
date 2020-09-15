@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.platform.expSearch.dao.ExpertDAO;
 import com.spring.platform.expert.vo.ExpertVO;
+import com.spring.platform.page.vo.PageVO;
 
 @Service
 public class ExpertServiceImpl implements ExpertService{
@@ -33,8 +34,13 @@ public class ExpertServiceImpl implements ExpertService{
 	}
 
 	@Override
-	public List<ExpertVO> allExpert() {
+	public List<ExpertVO> allExpert(PageVO pageVO) {
 		System.out.println("expert Service all");
-		return dao.allExpert();
+		return dao.allExpert(pageVO);
+	}
+
+	@Override
+	public int listCount() {
+		return dao.listCount();
 	}
 }

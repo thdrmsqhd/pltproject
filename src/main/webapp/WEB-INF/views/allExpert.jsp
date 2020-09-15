@@ -52,21 +52,30 @@
 						<!--한칸-->
 					</c:forEach>
 		    		</div>
-		    		<div class="row mt-5">
+	    		<div class="row mt-5">
 		          <div class="col">
 		            <div class="block-27"><!--페이징처리-->
 		              <ul>
-		                <li><a href="#">&lt;</a></li>
-		                <li class="active"><span>1</span></li>
-		                <li><a href="#">2</a></li>
-		                <li><a href="#">3</a></li>
-		                <li><a href="#">4</a></li>
-		                <li><a href="#">5</a></li>
-		                <li><a href="#">&gt;</a></li>
-		              </ul>
-		            </div><!--페이징처리-->
-		          </div>
-		        </div>
+             			<c:if test="${pageVO.startPage != 1}">
+               				<li><a href="${contextPath}/allExpert?nowPage=${pageVO.startPage -1}&cntPerPage=${pageVO.cntPerPage}">&lt;</a></li>
+           				</c:if>
+           				<c:forEach begin = "${pageVO.startPage}" end = "${pageVO.endPage}" var="idx">
+	               			<c:choose>
+	                			<c:when test="${idx == pageVO.nowPage }">
+	                 				<li class="active"><span> ${idx} </span></li>
+	                 			</c:when>
+	                 			<c:when test="${idx != pageVO.nowPage}">
+	                 				<li><a href="${contextPath}/allExpert?nowPage=${idx}&cntPerPage=${pageVO.cntPerPage}"> ${idx} </a></li>
+	                			</c:when>
+	                  		</c:choose>
+            			</c:forEach>
+            			<c:if test="${pageVO.endPage != pageVO.lastPage }">
+                			<li><a href="${contextPath }/allExpert?nowPage=${pageVO.endPage +1 }&cntPerPage=${pageVO.cntPerPage}">&gt;</a></li>
+            			</c:if>
+        			</ul>
+	            </div><!--페이징처리-->
+	          </div>
+	        </div>
           </div> <!-- .col-md-8 -->
 
           <div class="col-lg-3 sidebar pl-lg-3 ftco-animate">
