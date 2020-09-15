@@ -16,7 +16,7 @@
 	
 	<insert id="insertConsulting" parameterType="consultingVO">
 		<![CDATA[
-			insert into Consulting(no,compid,expid,title,content,filename,price,status) values (#{no},#{compId},#{expId},#{title},#{content},#{fileName},#{price},#{status})
+			insert into Consulting(no,compid,expid,title,content,filename,price,status) values (#{no},#{compId},#{expId},#{title},#{content},#{fileName},#{price},#{status})		
 		]]>
 	</insert>
 	

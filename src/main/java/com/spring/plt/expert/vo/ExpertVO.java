@@ -14,7 +14,14 @@ public class ExpertVO {
 	private String expCertif;
 	private String expDetail;
 	private String expAuth;
+	private String type;
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public String getId() {
 		return id;
 	}
@@ -76,18 +83,10 @@ public class ExpertVO {
 		this.expAuth = expAuth;
 	}
 	
+	@Override
 	public String toString() {
-		String info = "";
-		info += "\n"+id+"\n "
-			        +pwd+"\n"
-			        +expName+"\n"
-			        +expEmail+"\n"
-			        +expBizField+"\n"
-			        +expTel+"\n"
-			        +expCareer+"\n"
-			        +expCertif+"\n"
-			        +expDetail;
-		
-		return info;
+		return "ExpertVO [id=" + id + ", pwd=" + pwd + ", expName=" + expName + ", expEmail=" + expEmail
+				+ ", expBizField=" + expBizField + ", expTel=" + expTel + ", expCareer=" + expCareer + ", expCertif="
+				+ expCertif + ", expDetail=" + expDetail + ", expAuth=" + expAuth + ", type=" + type + "]";
 	}
 }
