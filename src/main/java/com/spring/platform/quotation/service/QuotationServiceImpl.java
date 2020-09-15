@@ -1,0 +1,36 @@
+package com.spring.platform.quotation.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spring.platform.quotation.dao.QuotationDAO;
+import com.spring.platform.quotation.vo.QuotationVO;
+
+@Service
+public class QuotationServiceImpl implements QuotationService{
+	@Autowired
+	QuotationDAO dao;
+	
+	@Override
+	public void insertQuotation(QuotationVO quotationVO) {
+		System.out.println("insert QuotationVO Service");
+		dao.insertQuotation(quotationVO);
+	}
+	
+	@Override
+	public List<QuotationVO> quotationList(){
+		return dao.quotationList();
+	}
+
+	@Override
+	public QuotationVO viewOneQuotation(String no) {
+		return dao.viewOneQuotation(no);
+	}
+	
+	@Override
+	public List<QuotationVO> alarmQuotation(String compId){
+		return dao.alarmQuotation(compId);
+	}
+}
