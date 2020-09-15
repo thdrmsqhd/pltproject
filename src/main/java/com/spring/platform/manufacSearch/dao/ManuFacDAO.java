@@ -3,7 +3,10 @@ package com.spring.platform.manufacSearch.dao;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.spring.platform.manuFac.vo.ManuFacVO;
+import com.spring.platform.page.vo.PageVO;
 
 public interface ManuFacDAO {
 
@@ -11,10 +14,13 @@ public interface ManuFacDAO {
 
 	List<ManuFacVO> serchByManuMinimunPrice(int price);
 
-	ManuFacVO viewManuFac(String id);
-
-	List<ManuFacVO> viewManuFac();
 
 	List<ManuFacVO> serchByManuLoc(String loc);
+
+	ManuFacVO viewOneManuFac(String id);
+
+	int listCount() throws DataAccessException;
+
+	List<ManuFacVO> allManuFac(PageVO pageVO);
 
 }

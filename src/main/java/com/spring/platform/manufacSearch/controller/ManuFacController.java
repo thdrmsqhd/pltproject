@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.platform.page.vo.PageVO;
+
 
 public interface ManuFacController {
 
@@ -18,6 +20,7 @@ public interface ManuFacController {
 
 	ModelAndView viewManuFac(String id, HttpServletRequest request, HttpServletResponse response);
 
-	ModelAndView allManuFac(HttpServletRequest request, HttpServletResponse response);
+	ModelAndView allManuFac(PageVO pagevo, String nowPage, String cntPerPage, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }

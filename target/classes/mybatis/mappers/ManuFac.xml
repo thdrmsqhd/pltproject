@@ -45,9 +45,23 @@
 		]]>
 	</select>
 	
-	<select id="allManuFac" resultMap="ManuFacResult">
-		<![CDATA[
-			select * from manufacturer
-		]]>
-	</select>
+	<select id="listCount" resultType="int">
+	   <![CDATA[
+	      SELECT COUNT(*)
+	        FROM manufacturer
+	   ]]>
+   </select>
+   
+   <select id="allManuFac" resultType="manufacVO">
+      <![CDATA[
+         SELECT * 
+			FROM ( 
+			  SELECT ROW_NUMBER() OVER(ORDER BY rownum asc) AS RNUM, manufacturer.* 
+			  FROM manufacturer
+			)
+			WHERE RNUM BETWEEN #{start} AND #{end} ORDER BY rownum desc
+      ]]>
+   </select> 
+   
+	
 </mapper>

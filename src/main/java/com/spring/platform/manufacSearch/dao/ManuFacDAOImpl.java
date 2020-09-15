@@ -8,6 +8,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.spring.platform.manuFac.vo.ManuFacVO;
+import com.spring.platform.page.vo.PageVO;
 
 @Repository
 public class ManuFacDAOImpl implements ManuFacDAO{
@@ -38,17 +39,25 @@ public class ManuFacDAOImpl implements ManuFacDAO{
 	}
 
 	@Override
-	public ManuFacVO viewManuFac(String id) {
+	public ManuFacVO viewOneManuFac(String id) {
 		System.out.println("ManuFac DAO view");
 		return sqlSession.selectOne("mapper.manufac.viewManuFac", id);
 	}
 
 	@Override
-	public List<ManuFacVO> viewManuFac() {
-		System.out.println("ManuFac DAO all");
-		return sqlSession.selectList("mapper.manufac.allManuFac");
+	public List<ManuFacVO> allManuFac(PageVO pageVO) {
+		System.out.println("ManuFac DAO all"+" " + pageVO.getStart() +" 현재페이지 "+ pageVO.getEnd());
+		return sqlSession.selectList("mapper.manufac.allManuFac",pageVO);
 	}
-	
+
+	@Override
+	public int listCount() throws DataAccessException {
+		int listCount = sqlSession.selectOne("mapper.manufac.listCount");
+		return listCount;
+	}
+
+
+
 }
 
 

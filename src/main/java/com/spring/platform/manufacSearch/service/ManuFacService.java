@@ -2,7 +2,10 @@ package com.spring.platform.manufacSearch.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.spring.platform.manuFac.vo.ManuFacVO;
+import com.spring.platform.page.vo.PageVO;
 
 public interface ManuFacService {
 
@@ -13,8 +16,10 @@ public interface ManuFacService {
 
 	ManuFacVO viewManuFac(String id);
 
-	List<ManuFacVO> allManuFac();
+	List<ManuFacVO> allManuFac(PageVO pageVO);
 
 	List<ManuFacVO> serchByManuLoc(String loc);
+
+	int listCount() throws DataAccessException;
 
 }

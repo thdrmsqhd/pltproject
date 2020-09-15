@@ -1,5 +1,6 @@
 package com.spring.platform.manufacSearch.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.platform.manuFac.vo.ManuFacVO;
 import com.spring.platform.manufacSearch.service.ManuFacService;
+import com.spring.platform.page.vo.PageVO;
 
 @Controller
 public class ManuFacConrollerImpl implements ManuFacController{
@@ -30,13 +32,28 @@ public class ManuFacConrollerImpl implements ManuFacController{
 	
 	@RequestMapping(value="/allManuFac")
 	@Override
-	public ModelAndView allManuFac(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView allManuFac(PageVO pageVO, @RequestParam(value="nowPage", required = false) String nowPage, @RequestParam(value="cntPerPage", required=false)String cntPerPage,HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ManuFac Controller allManuFac");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("html/text;charset=utf-8");
 		String viewName = (String) request.getAttribute("viewName");
+		int total = service.listCount();
+		if(nowPage == null && cntPerPage == null) {
+	         nowPage = "1";
+	         cntPerPage = "9";
+	      }else if(nowPage == null) {
+	         nowPage = "1";
+	      }else if(cntPerPage == null) {
+	         cntPerPage = "9";
+	      } //nowPage 현재 페이지, cntPerPage = 한페이지당 글 개수
+	    System.out.println(cntPerPage+" 한페이지당 글 개수");
+	    pageVO = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
+
 		List<ManuFacVO> manuFacList= new ArrayList<ManuFacVO>();
-		manuFacList = service.allManuFac();
+		manuFacList = service.allManuFac(pageVO);
 		ModelAndView mav = new ModelAndView(viewName);//뷰 설정할것 
 		mav.addObject("manuFacList",manuFacList);
+		mav.addObject("pageVO", pageVO);
 		return mav;
 	}
 	
