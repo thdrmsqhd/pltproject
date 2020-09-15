@@ -44,7 +44,7 @@
 		    						</div>
 		    					</div>
 		    					<div class="text px-4 py-3 w-100">
-		    						<h2><a href="${contextPath }/viewExpert?id= ${expert.id }"> ${expert.expName }</a></h2>
+		    						<h2><a href="${contextPath }/viewExpert?id=${expert.id }"> ${expert.expName }</a></h2>
 		    						<p> ${expert.expBizField }</p>
 		    					</div>
 		    				</div>

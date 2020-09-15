@@ -30,7 +30,7 @@ public class ExpertDAOImpl implements ExpertDAO {
 
 	@Override
 	public ExpertVO viewExpert(String id) {
-		System.out.println("expert DAO view");
+		System.out.println("expert DAO view" + id);
 		return sqlSession.selectOne("mapper.expert.viewExpert", id);
 	}
 	

@@ -12,7 +12,7 @@ import com.spring.platform.quotation.vo.QuotationVO;
 
 public interface ConsultingController {
 
-	ModelAndView insertConsulting(ConsultingVO ConsultingVO, HttpServletRequest request, HttpServletResponse response);
+	ModelAndView insertConsulting(ConsultingVO ConsultingVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 	ModelAndView insertConsultingView(String manuId, HttpServletRequest request, HttpServletResponse response);
 

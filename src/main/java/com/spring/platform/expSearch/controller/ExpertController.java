@@ -13,7 +13,7 @@ public interface ExpertController {
 
 	Map<Integer, Map<String, Object>> serchByExpertName(String name, HttpServletRequest request, HttpServletResponse response);
 
-	ModelAndView viewExpert(String id, HttpServletRequest request, HttpServletResponse response);
+	ModelAndView viewExpert(String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 	ModelAndView allExpert(HttpServletRequest request, HttpServletResponse response);
 

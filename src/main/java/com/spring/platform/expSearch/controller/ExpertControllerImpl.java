@@ -1,5 +1,6 @@
 package com.spring.platform.expSearch.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -76,9 +77,10 @@ public class ExpertControllerImpl implements ExpertController {
 	
 	@RequestMapping(value="/viewExpert", method = RequestMethod.GET)
 	@Override//뷰
-	public ModelAndView viewExpert(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView viewExpert(String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
 		System.out.println("expert Controller serchByExpertType");
+		id = request.getParameter("id");
 		System.out.println(id + "  <==id 입니다."); 
 		expertVO = service.viewExpert(id);
 		System.out.println(expertVO);
@@ -89,8 +91,6 @@ public class ExpertControllerImpl implements ExpertController {
 	}
 	
 	
-	//뷰인터셉터 설정, 뷰 작성 필요 09/01
-	//경력별로 검색 가능하게 분야 + 경력
 	public Map<String, Object> putMapExpert(int i,List<ExpertVO> expertList){
 		Map<String, Object> expert = new HashMap<String, Object>();
 		String id = expertList.get(i).getId();

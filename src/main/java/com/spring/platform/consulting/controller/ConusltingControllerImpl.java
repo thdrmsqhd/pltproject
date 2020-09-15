@@ -1,5 +1,6 @@
 package com.spring.platform.consulting.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,13 +39,17 @@ public class ConusltingControllerImpl implements ConsultingController {
 	
 	@RequestMapping(value = "/insertConsulting.do")
 	@Override
-	public ModelAndView insertConsulting(@ModelAttribute ConsultingVO ConsultingVO, HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView insertConsulting(@ModelAttribute ConsultingVO ConsultingVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("UTF-8");
 		System.out.println("insert Consulting Controller");
 		System.out.println(ConsultingVO.getFileName());
-		System.out.println(ConsultingVO);
+		System.out.println(ConsultingVO.getExpId());
 		service.insertConsulting(ConsultingVO);
 		String viewName = "redirect:/viewExpert?id=" + ConsultingVO.getExpId();
+		System.out.println(viewName);
 		ModelAndView mav = new ModelAndView(viewName);
+		System.out.println(mav);
 		return mav;
 	}
 	

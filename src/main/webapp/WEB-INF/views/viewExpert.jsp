@@ -36,7 +36,7 @@
                 <p>
                   <img src="${contextPath }/resources/images/image_1.jpg" alt="" class="img-fluid">
                 </p>
-              </div>메롱
+              </div>
               <div style="display: inline-block; vertical-align: middle; font-size: 16px; width: 150px" >
                 <ul style="list-style: none;">
                   <li> ${expertVO.expName }</li>
@@ -44,6 +44,8 @@
                   <li> ${expertVO.expBizField }</li>
                 </ul>
                 <a href="${contextPath }/insertConsultingForm.do?expId=${expertVO.id }" class="btn btn-primary" style="width: 150px">컨설팅 요청</a>
+                <br><br>
+                <a href="${contextPath }/allExpert" class="btn btn-primary" style="width: 150px">목록으로</a>
               </div>
             </div>
             <div style="float: left;">
