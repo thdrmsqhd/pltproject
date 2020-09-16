@@ -1,4 +1,4 @@
-package com.spring.platform.manufacPage.vo;
+package com.spring.plt.manufacPage.vo;
 
 import java.util.Date;
 

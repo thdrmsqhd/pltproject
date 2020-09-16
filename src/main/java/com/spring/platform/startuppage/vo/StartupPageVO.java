@@ -1,4 +1,4 @@
-package com.spring.platform.startuppage.vo;
+package com.spring.plt.startuppage.vo;
 
 import java.util.Date;
 
