@@ -24,7 +24,7 @@ public class MyPageControllerImpl implements MyPageController{
 		//제조업체, 전문가 , 스타트업 정보를 가져온다.
 		//스크랩 리스트를 가져온다.
 		//견적 ,발주, 컨설팅 현황을 가져온다.
-		mav.addObject(attributeName, attributeValue);
+//		mav.addObject(attributeName, attributeValue);
 		return mav;
 	}
 }
