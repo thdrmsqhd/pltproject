@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-lg-9 ftco-animate">
 					<div class="row con">
-					<c:forEach var = "manuFac" items = "${manuFacList}">
+					<c:forEach var = "manufac" items = "${manufacList}">
 						<!--한칸-->
 		    			<div class="col-md-4 d-flex">
 		    				<div class="book-wrap">
@@ -38,15 +38,15 @@
 		    							<a href="#" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Add to Wishlist">
 		    								<span class="flaticon-heart-1"></span>
 		    							</a>
-		    							<a href="${contextPath }/viewManuFac?id=${manuFac.id}" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Quick View">
+		    							<a href="${contextPath }/viewManufac?id=${manufac.id}" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Quick View">
 		    								<span class="flaticon-search"></span>
 		    							</a>
 		    						</div>
 		    					</div>
 		    					<div class="text px-4 py-3 w-100">
-		    						<p class="mb-2"><span class="price">${manuFac.productPrice } </span></p>
-		    						<h2><a href="${contextPath }/viewManuFac?id=${manuFac.id}"> ${manuFac.manuName }</a></h2>
-		    						<p> ${manuFac.manuAddr }</p>
+		    						<p class="mb-2"><span class="price">${manufac.productPrice } </span></p>
+		    						<h2><a href="${contextPath }/viewManufac?id=${manufac.id}"> ${manufac.manuName }</a></h2>
+		    						<p> ${manufac.manuAddr }</p>
 		    					</div>
 		    				</div>
 		    			</div>
@@ -58,7 +58,7 @@
             		<div class="block-27">
               			<ul>
                  			<c:if test="${pageVO.startPage != 1}">
-                   				<li><a href="${contextPath}/allManuFac?nowPage=${pageVO.startPage -1}&cntPerPage=${pageVO.cntPerPage}">&lt;</a></li>
+                   				<li><a href="${contextPath}/allManufac?nowPage=${pageVO.startPage -1}&cntPerPage=${pageVO.cntPerPage}">&lt;</a></li>
                				</c:if>
                				<c:forEach begin = "${pageVO.startPage}" end = "${pageVO.endPage}" var="idx">
 	                  			<c:choose>
@@ -66,12 +66,12 @@
 		                   				<li class="active"><span> ${idx} </span></li>
 		                   			</c:when>
 		                   			<c:when test="${idx != pageVO.nowPage}">
-		                   				<li><a href="${contextPath}/allManuFac?nowPage=${idx}&cntPerPage=${pageVO.cntPerPage}"> ${idx} </a></li>
+		                   				<li><a href="${contextPath}/allManufac?nowPage=${idx}&cntPerPage=${pageVO.cntPerPage}"> ${idx} </a></li>
 		                  			</c:when>
 	                     		</c:choose>
                 			</c:forEach>
                 			<c:if test="${pageVO.endPage != pageVO.lastPage }">
-	                   			<li><a href="${contextPath }/allManuFac?nowPage=${pageVO.endPage + 1}&cntPerPage=${pageVO.cntPerPage}">&gt;</a></li>
+	                   			<li><a href="${contextPath }/allManufac?nowPage=${pageVO.endPage + 1}&cntPerPage=${pageVO.cntPerPage}">&gt;</a></li>
                 			</c:if>
               			</ul>
             		</div>
@@ -91,7 +91,7 @@
           <div id="sidebar" class="sidebar-box ftco-animate">
             <div class="categories">
               <!-- <h5>업종별 검색</h5> -->
-              <select id="manuFacType" class="custom-select" style="width:75%">
+              <select id="manufacType" class="custom-select" style="width:75%">
                 <option value="box">업종</option>
                 <option value="도서/음반">도서/음반</option>
                 <option value="가전/디지털">가전/디지털</option>
@@ -103,7 +103,7 @@
               <!-- id기준으로 자바스크립트에서 button선택 하여 onClick메서드 이용하여 ajax작동 -->
               <hr>
               <!-- <h5>지역별 검색</h5> -->
-              <select id="manuFacLoc" class="custom-select" style="width:75%">
+              <select id="manufacLoc" class="custom-select" style="width:75%">
                 <option value="box">지역</option>
                 <option value="서울">서울</option>
                 <option value="부산">부산</option>
@@ -126,7 +126,7 @@
               <!-- <h5>최소 발주 금액</h5> -->
 			  <label for="최소발주금액">최소 발주 금액</label><br>
 			  <div style="width:80%">
-              <input type="range" id="manuFacPrice" class="form-control-range" id="formControlRange" min="100" max="1000" value="90" step="10">
+              <input type="range" id="manufacPrice" class="form-control-range" id="formControlRange" min="100" max="1000" value="90" step="10">
               <div class="changeRange" style ="width:80%; height:50px;">
               	100만원
               </div>
@@ -170,7 +170,7 @@
                 var select = "";
                 
                 if(target === "serchByTypebtn"){
-                    select = document.querySelector("#manuFacType").value
+                    select = document.querySelector("#manufacType").value
                     console.log(select)
                     changeHtml ="";
                     if(select != "box"){
@@ -179,7 +179,7 @@
                     	window.location.reload(true);
                     }
                 }else if(target === "serchByLocbtn"){
-                    select = document.querySelector("#manuFacLoc").value
+                    select = document.querySelector("#manufacLoc").value
                     console.log(select)
                     changeHtml ="";
                     if(select != "box"){
@@ -188,7 +188,7 @@
                     	window.location.reload(true);
                     }
                 }else if(target === "serchByPricebtn"){
-                    select = document.querySelector("#manuFacPrice").value
+                    select = document.querySelector("#manufacPrice").value
                     console.log(select)
                     changeHtml ="";
                     priceAjax(select);
@@ -203,9 +203,9 @@
             	dataType:"json",
             	success:function(data){
             		for(var i = 0 ; i<Object.keys(data).length; i++){
-                		var manuFac = data[i];
-                		console.log(manuFac);
-          				fixHtml(manuFac);
+                		var manufac = data[i];
+                		console.log(manufac);
+          				fixHtml(manufac);
            			}
             	}
             });
@@ -214,13 +214,13 @@
 		function locAjax(select){
 			console.log(typeof(select) + " " +select)
 			$.ajax({
-                url:"${contextPath}/serchByManuFacLoc?loc=" + select,
+                url:"${contextPath}/serchBymanufacLoc?loc=" + select,
                 type:"GET",
                 success:function(data){
                 	for(var i = 0 ; i<Object.keys(data).length; i++){
-                		var manuFac = data[i];
-                		console.log(manuFac);
-          				fixHtml(manuFac);
+                		var manufac = data[i];
+                		console.log(manufac);
+          				fixHtml(manufac);
            			}
                 }
             });
@@ -233,15 +233,15 @@
                 data:{"price":select},
                 success:function(data){
                 	for(var i = 0 ; i<Object.keys(data).length; i++){
-                		var manuFac = data[i];
-                		console.log(manuFac);
-          				fixHtml(manuFac);
+                		var manufac = data[i];
+                		console.log(manufac);
+          				fixHtml(manufac);
                     }
                 }
             });
 		}
 		
-		function fixHtml(manuFac){
+		function fixHtml(manufac){
 				changeHtml += '<div class="col-md-4 d-flex">'        				
 				changeHtml += 	'<div class="book-wrap">'
 				changeHtml +=		'<div class="img d-flex justify-content-end w-100" style="background-image: url(${contextPath }/resources/images/book-1.jpg);">'
@@ -249,15 +249,15 @@
 				changeHtml +=				'<a href="#" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Add to Wishlist">'
 				changeHtml +=						'<span class="flaticon-heart-1"></span>'
 				changeHtml +=				'</a>'
-				changeHtml +=				'<a href="${contextPath }/viewManuFac?id=${manuFac.id}" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Quick View">'
+				changeHtml +=				'<a href="${contextPath }/viewManufac?id=${manufac.id}" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Quick View">'
 				changeHtml +=					'<span class="flaticon-search"></span>'
 				changeHtml +=				'</a>'
 				changeHtml +=			'</div>'
 				changeHtml +=		'</div>'
 				changeHtml +=		'<div class="text px-4 py-3 w-100">'
-				changeHtml +=			'<p class="mb-2"><span class="price">' +manuFac.price  + '</span></p>'
-				changeHtml +=			"<h2><a href=plt/viewManuFac?id="+manuFac.id+">"+manuFac.name+"</a></h2>"
-				changeHtml +=			'<p> ' + manuFac.addr + '</p>'
+				changeHtml +=			'<p class="mb-2"><span class="price">' +manufac.price  + '</span></p>'
+				changeHtml +=			"<h2><a href=plt/viewManufac?id="+manufac.id+">"+manufac.name+"</a></h2>"
+				changeHtml +=			'<p> ' + manufac.addr + '</p>'
 				changeHtml +=		'</div>'
 				changeHtml +=	'</div>'
 				changeHtml +='</div>'

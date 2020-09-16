@@ -41,7 +41,7 @@ public class QuotationControllerImpl implements QuotationController {
 		System.out.println(quotationVO.getManuId());
 		System.out.println(quotationVO);
 		service.insertQuotation(quotationVO);
-		String viewName = "redirect:/viewManuFac?id=" + quotationVO.getManuId();
+		String viewName = "redirect:/viewManufac?id=" + quotationVO.getManuId();
 		ModelAndView mav = new ModelAndView(viewName);
 		return mav;
 	}

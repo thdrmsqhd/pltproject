@@ -18,9 +18,9 @@ public interface ManufacSearchController {
 
 	Map<Integer, Map<String, Object>> serchByManuMinimumPrice(String price, HttpServletRequest request, HttpServletResponse response);
 
-	ModelAndView viewManuFac(String id, HttpServletRequest request, HttpServletResponse response);
-
-	ModelAndView allManuFac(PageVO pagevo, String nowPage, String cntPerPage, HttpServletRequest request,
+	ModelAndView allManufac(PageVO pagevo, String nowPage, String cntPerPage, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+
+	ModelAndView viewManufac(String id, HttpServletRequest request, HttpServletResponse response);
 
 }

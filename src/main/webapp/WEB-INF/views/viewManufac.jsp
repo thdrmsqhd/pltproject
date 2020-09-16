@@ -39,21 +39,23 @@
               </div>
               <div style="display: inline-block; vertical-align: middle; font-size: 16px; width: 150px;">
                 <ul style="list-style:none">
-                  <li> ${manuFacVO.manuName }</li>
-                  <li> ${manuFacVO.manuCeoName }</li>
-                  <li> ${manuFacVO.manuTel }</li>
-                  <li> ${manuFacVO.manuBizType }</li>
+                  <li> ${manufacVO.manuName }</li>
+                  <li> ${manufacVO.manuCeoName }</li>
+                  <li> ${manufacVO.manuTel }</li>
+                  <li> ${manufacVO.manuBizType }</li>
                 </ul>
-                <a href="${contextPath }/insertQuotationForm.do?manuId=${manuFacVO.id}" class="btn btn-primary" style="width: 150px">견적요청</a>
+                <a href="${contextPath }/insertQuotationForm.do?manuId=${manufacVO.id}" class="btn btn-primary" style="width: 150px">견적요청</a>
+                <br><br>
+                <a href="${contextPath }/allManufac" class="btn btn-primary" style="width: 150px">목록으로</a>
               </div>
             </div>
             <div style="float: left;">
               <br><br>
               <!--상단 본문 시작부-->
               <p>
-                <h3>${manuFacVO.manuName }</h3>
-                <p> ${manuFacVO.manuDetail }</p>
-                <p> ${manuFacVO.productPrice }</p>
+                <h3>${manufacVO.manuName }</h3>
+                <p> ${manufacVO.manuDetail }</p>
+                <p> ${manufacVO.productPrice }</p>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.
               </p>
@@ -62,11 +64,11 @@
               <p>
                 <img src="${contextPath }/resources/images/image_2.jpg" alt="" class="img-fluid">
               </p>
-              <p> ${manuFacVO.manuAddr} ${manuFacVO.manuDetailAddr }</p>
+              <p> ${manufacVO.manuAddr} ${manufacVO.manuDetailAddr }</p>
              
               <p>Voluptas dolores dignissimos dolorum temporibus, autem aliquam ducimus at officia adipisci quasi nemo a perspiciatis provident magni laboriosam repudiandae iure iusto commodi debitis est blanditiis alias laborum sint dolore. Dolores, iure, reprehenderit. Error provident, pariatur cupiditate soluta doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis, inventore?</p>
               <!--여기까지 본문-->
-			    <div id="map" style="width: 80%; height:350px" class="${manuFacVO.manuAddr }"></div>
+			    <div id="map" style="width: 80%; height:350px" class="${manufacVO.manuAddr }"></div>
             </div>
           </div> <!-- .col-md-8 -->
       	</div>

@@ -4,13 +4,11 @@
 	
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.spring.platform.manuFac.vo.ManuFacVO" alias="ManuFacVO"/>
+		<typeAlias type="com.spring.platform.manufac.vo.ManufacVO" alias="ManufacVO"/>
 		<typeAlias type="com.spring.platform.expert.vo.ExpertVO" alias="expertVO"/>
 		<typeAlias type="com.spring.platform.quotation.vo.QuotationVO" alias="quotationVO"/>
 		<typeAlias type="com.spring.platform.consulting.vo.ConsultingVO" alias="consultingVO"/>
 		<typeAlias type="com.spring.platform.production.vo.ProductionVO" alias="productionVO"/>
-		<typeAlias type="com.spring.platform.startuppage.vo.StartupPageVO"  alias="startuppagevo" />
-		<typeAlias type="com.spring.platform.startuppage.vo.PageVO"  alias="pagevo" />
 		
 	</typeAliases>
 </configuration>

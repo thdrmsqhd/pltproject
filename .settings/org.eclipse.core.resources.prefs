@@ -1,7 +1,2 @@
 eclipse.preferences.version=1
-encoding//src/main/java/com/spring/platform/scrap/controller/ScrapControllerImpl.java=UTF-8
-encoding//src/main/java/com/spring/platform/scrap/dao/ScrapDAO.java=UTF-8
-encoding//src/main/java/com/spring/platform/scrap/dao/ScrapDAOImpl.java=UTF-8
-encoding//src/main/java/com/spring/platform/scrap/service/ScrapServiceImpl.java=UTF-8
-encoding//src/main/java/com/spring/platform/scrap/vo/PageVO.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/home.jsp=UTF-8
