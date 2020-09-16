@@ -12,17 +12,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.platform.consulting.vo.ConsultingVO;
 import com.spring.platform.expertpage.service.ConsultingService;
-import com.spring.platform.expertpage.vo.ConsultingVO;
-import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.page.vo.PageVO;
 
-@Controller("consultingController")
+@Controller
 public class ConsultingControllerImpl implements ConsultingController{
 	
 	@Autowired
 	private ConsultingService consultingservice;
-	@Autowired
-	private ConsultingVO consultingvo;
 	
 	@RequestMapping(value = "/expertpage/consulting.do",method = RequestMethod.GET)
 	public ModelAndView prodlist(PageVO pagevo, @RequestParam(value="nowPage", required = false)String nowPage, @RequestParam(value  = "cntPerPage", required = false)String cntPerPage, HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -42,10 +40,10 @@ public class ConsultingControllerImpl implements ConsultingController{
 			System.out.println(nowPage);
 			pagevo = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
 			List<ConsultingVO> conlist = consultingservice.listcon(pagevo);
-			List<ConsultingVO> c_conlist = consultingservice.c_listcon(pagevo);
-			List<ConsultingVO> w_conlist = consultingservice.w_listcon(pagevo);
-			List<ConsultingVO> i_conlist = consultingservice.i_listcon(pagevo);
-			List<ConsultingVO> d_conlist = consultingservice.d_listcon(pagevo);
+			List<ConsultingVO> c_conlist = consultingservice.c_listcon(pagevo);//c == 완료
+			List<ConsultingVO> w_conlist = consultingservice.w_listcon(pagevo);//w == 대기
+			List<ConsultingVO> i_conlist = consultingservice.i_listcon(pagevo);//i == 진행중
+			List<ConsultingVO> d_conlist = consultingservice.d_listcon(pagevo);//d == 거절
 			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("conlist",conlist);

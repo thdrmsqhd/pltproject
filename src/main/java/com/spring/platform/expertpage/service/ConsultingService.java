@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.spring.platform.expertpage.vo.ConsultingVO;
-import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.consulting.vo.ConsultingVO;
+import com.spring.platform.page.vo.PageVO;
 
 public interface ConsultingService {
 	public int listCount() throws Exception;

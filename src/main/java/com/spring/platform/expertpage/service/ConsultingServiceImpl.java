@@ -6,16 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.spring.platform.consulting.vo.ConsultingVO;
 import com.spring.platform.expertpage.dao.ConsultingDAO;
-import com.spring.platform.expertpage.vo.ConsultingVO;
-import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.page.vo.PageVO;
 
-@Service("consultingService")
+@Service
 public class ConsultingServiceImpl implements ConsultingService{
 	@Autowired 
 	private ConsultingDAO consultingdao;
-	@Autowired 
-	private PageVO pagevo;
 
 	
 	public int listCount() throws Exception{

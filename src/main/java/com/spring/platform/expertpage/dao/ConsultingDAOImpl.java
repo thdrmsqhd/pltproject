@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.spring.platform.expertpage.vo.ConsultingVO;
-import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.consulting.vo.ConsultingVO;
+import com.spring.platform.page.vo.PageVO;
 
-@Repository("consultingDAO")
+@Repository
 public class ConsultingDAOImpl implements ConsultingDAO{
 	@Autowired
 	private SqlSession sqlSession;

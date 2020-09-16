@@ -2,16 +2,17 @@ package com.spring.platform.manufacPage.service;
 
 import java.util.List;
 
-import com.spring.platform.manufacPage.vo.ManufacVO;
-import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.manuFac.vo.ManuFacVO;
+import com.spring.platform.page.vo.PageVO;
+
 
 public interface ManufacService {
 
 	int listCount();
 
-	List<ManufacVO> listesti(PageVO pagevo);
+	List<ManuFacVO> listesti(PageVO pagevo);
 
-	List<ManufacVO> listprod(PageVO pagevo);
+	List<ManuFacVO> listprod(PageVO pagevo);
 
 	int deleteesti(int no) throws Exception;
 
@@ -19,17 +20,17 @@ public interface ManufacService {
 
 	int updatestatus_de(int quotestatus, int no);
 
-	List<ManufacVO> w_estiList(PageVO pagevo) throws Exception;
-	List<ManufacVO> i_estiList(PageVO pagevo) throws Exception;
-	List<ManufacVO> c_estiList(PageVO pagevo) throws Exception;
-	List<ManufacVO> d_estiList(PageVO pagevo) throws Exception;
+	List<ManuFacVO> w_estiList(PageVO pagevo) throws Exception;
+	List<ManuFacVO> i_estiList(PageVO pagevo) throws Exception;
+	List<ManuFacVO> c_estiList(PageVO pagevo) throws Exception;
+	List<ManuFacVO> d_estiList(PageVO pagevo) throws Exception;
 
-	List<ManufacVO> d_listprod(PageVO pagevo)throws Exception;
-	List<ManufacVO> w_listprod(PageVO pagevo)throws Exception;
-	List<ManufacVO> i_listprod(PageVO pagevo)throws Exception;
-	List<ManufacVO> c_listprod(PageVO pagevo)throws Exception;
-	List<ManufacVO> s_listprod(PageVO pagevo)throws Exception;
-	List<ManufacVO> e_listprod(PageVO pagevo)throws Exception;
+	List<ManuFacVO> d_listprod(PageVO pagevo)throws Exception;
+	List<ManuFacVO> w_listprod(PageVO pagevo)throws Exception;
+	List<ManuFacVO> i_listprod(PageVO pagevo)throws Exception;
+	List<ManuFacVO> c_listprod(PageVO pagevo)throws Exception;
+	List<ManuFacVO> s_listprod(PageVO pagevo)throws Exception;
+	List<ManuFacVO> e_listprod(PageVO pagevo)throws Exception;
 	
 	int listCount_d() throws Exception;
 	int listCount_i() throws Exception;

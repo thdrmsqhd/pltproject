@@ -1,6 +1,5 @@
 package com.spring.platform.manufacPage.controller;
 
-import java.net.InetAddress;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,23 +12,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.platform.manuFac.vo.ManuFacVO;
 import com.spring.platform.manufacPage.service.ManufacService;
-import com.spring.platform.manufacPage.vo.ManufacVO;
-import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.page.vo.PageVO;
 
-@Controller("manufaccontroller")
+@Controller
 public class ManufacControllerImpl implements ManufacController{
 
 		@Autowired
 		private ManufacService manufacservice;
 		@Autowired
-		private ManufacVO manufac;
 		@RequestMapping(value = {"/manufacpage/estilist.do","/manufacpage/prodlist.do" },method = RequestMethod.GET)
 		private ModelAndView prodlist(PageVO pagevo, @RequestParam(value="nowPage", required = false)String nowPage, @RequestParam(value  = "cntPerPage", required = false)String cntPerPage, HttpServletRequest request, HttpServletResponse response) throws Exception{
 			
 				request.setCharacterEncoding("utf-8");
 				response.setContentType("html/text; charset=utf-8");
-				String viewName = (String)request.getAttribute("viewName");
 				
 				int total = manufacservice.listCount();
 				if(nowPage == null && cntPerPage == null) {
@@ -43,18 +40,18 @@ public class ManufacControllerImpl implements ManufacController{
 				System.out.println(nowPage);
 				pagevo = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
 				
-				List<ManufacVO> prodlist = manufacservice.listprod(pagevo);
-				List<ManufacVO> estilist = manufacservice.listesti(pagevo);
-				List<ManufacVO> w_estiList = manufacservice.w_estiList(pagevo);
-				List<ManufacVO> i_estiList = manufacservice.i_estiList(pagevo);
-				List<ManufacVO> c_estiList = manufacservice.c_estiList(pagevo);
-				List<ManufacVO> d_estiList = manufacservice.d_estiList(pagevo);
-				List<ManufacVO> w_prodlist = manufacservice.w_listprod(pagevo);
-				List<ManufacVO> i_prodlist = manufacservice.i_listprod(pagevo);
-				List<ManufacVO> c_prodlist = manufacservice.c_listprod(pagevo);
-				List<ManufacVO> d_prodlist = manufacservice.d_listprod(pagevo);
-				List<ManufacVO> s_prodlist = manufacservice.s_listprod(pagevo);
-				List<ManufacVO> e_prodlist = manufacservice.e_listprod(pagevo);
+				List<ManuFacVO> prodlist = manufacservice.listprod(pagevo);
+				List<ManuFacVO> estilist = manufacservice.listesti(pagevo);
+				List<ManuFacVO> w_estiList = manufacservice.w_estiList(pagevo);
+				List<ManuFacVO> i_estiList = manufacservice.i_estiList(pagevo);
+				List<ManuFacVO> c_estiList = manufacservice.c_estiList(pagevo);
+				List<ManuFacVO> d_estiList = manufacservice.d_estiList(pagevo);
+				List<ManuFacVO> w_prodlist = manufacservice.w_listprod(pagevo);
+				List<ManuFacVO> i_prodlist = manufacservice.i_listprod(pagevo);
+				List<ManuFacVO> c_prodlist = manufacservice.c_listprod(pagevo);
+				List<ManuFacVO> d_prodlist = manufacservice.d_listprod(pagevo);
+				List<ManuFacVO> s_prodlist = manufacservice.s_listprod(pagevo);
+				List<ManuFacVO> e_prodlist = manufacservice.e_listprod(pagevo);
 				
 				ModelAndView mav = new ModelAndView();
 				mav.addObject("prodlist",prodlist);
@@ -114,7 +111,6 @@ public class ManufacControllerImpl implements ManufacController{
 			
 				request.setCharacterEncoding("utf-8");
 				response.setContentType("html/text; charset=utf-8");
-				String viewName = (String)request.getAttribute("viewName");
 				
 				int total = manufacservice. listCount_w();
 				if(nowPage == null && cntPerPage == null) {
@@ -127,7 +123,7 @@ public class ManufacControllerImpl implements ManufacController{
 				}
 				System.out.println(nowPage);
 				pagevo = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
-				List<ManufacVO> w_estiList = manufacservice.w_estiList(pagevo);
+				List<ManuFacVO> w_estiList = manufacservice.w_estiList(pagevo);
 				ModelAndView mav = new ModelAndView();
 				mav.addObject("w_estiList", w_estiList);
 				mav.addObject("pagevo",pagevo);
@@ -149,7 +145,7 @@ public class ManufacControllerImpl implements ManufacController{
 			}
 			System.out.println(nowPage);
 			pagevo = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
-			List<ManufacVO> i_estiList = manufacservice.i_estiList(pagevo);
+			List<ManuFacVO> i_estiList = manufacservice.i_estiList(pagevo);
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("i_estiList", i_estiList);
 			mav.addObject("pagevo",pagevo);
@@ -170,7 +166,7 @@ public class ManufacControllerImpl implements ManufacController{
 		}
 		System.out.println(nowPage);
 		pagevo = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
-		List<ManufacVO> c_estiList = manufacservice.c_estiList(pagevo);
+		List<ManuFacVO> c_estiList = manufacservice.c_estiList(pagevo);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("c_estiList", c_estiList);
 		mav.addObject("pagevo",pagevo);
@@ -191,7 +187,7 @@ public class ManufacControllerImpl implements ManufacController{
 		}
 		System.out.println(nowPage);
 		pagevo = new PageVO(total, Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
-		List<ManufacVO> d_estiList = manufacservice.d_estiList(pagevo);
+		List<ManuFacVO> d_estiList = manufacservice.d_estiList(pagevo);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("d_estiList", d_estiList);
 		mav.addObject("pagevo",pagevo);
