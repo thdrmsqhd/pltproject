@@ -79,15 +79,11 @@
 
        <tbody>
           <c:forEach var="consulting" items="${w_conlist}" > 
-          	 
-               <tr align="center">
-               <td><a href="#">${consulting.expname}</a></td>
-               <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">철회</button></td>
-               <td><a href= "${contextPath}/startuppage/conupdatestatus_y.do?status=${cons_esti.status}&no=${cons_esti.no}">수락버튼</a></td>
-               <td><a href= "${contextPath}/startuppage/conupdatestatus_n.do?status=${cons_esti.status}&no=${cons_esti.no}">거절버튼</a></td>
-                   
-          </tr>
+            <tr align="center">
+              <td><a href="${contextPath }/viewOneConsulting.do?no=${consulting.no}">${consulting.expname}</a></td>
+              <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
+              <td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">철회</button></td>
+      		</tr>
         </c:forEach>
    </table>
  
@@ -132,8 +128,6 @@
      <script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
      <script src="${contextPath}/resources/js/scrollax.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-     <script src="${contextPath}/resources/js/google-map.js"></script>
      <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

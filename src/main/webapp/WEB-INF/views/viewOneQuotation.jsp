@@ -235,6 +235,8 @@
 		<script>
 			var form = document.querySelector(".contactForm")
 			var btn = document.querySelector(".btn-primary")
+			var price = document.querySelector(".price")
+			var vat = document.querySelector(".vat")
 			
 			btn.addEventListener("click",function(e){
 				e.preventDefault()
@@ -251,6 +253,10 @@
 				}else{
 					history.back();
 				}
+			})
+			
+			addEventListener("load",function(e){
+				vat.value = Math.round(price.value/10)
 			})
 		</script>
 

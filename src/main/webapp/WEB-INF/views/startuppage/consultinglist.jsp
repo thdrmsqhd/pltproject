@@ -79,14 +79,10 @@
 
        <tbody>
           <c:forEach var="consulting" begin="0" end="2" items="${w_conlist}" > 
-          	 
                <tr align="center">
-               <td><a href="#">${consulting.expname}</a></td>
+               <td><a href="${contextPath }/viewOneConsulting.do?no=${consulting.no}">${consulting.expname}</a></td>
                <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">철회</button></td>
-               <td><a href= "${contextPath}/startuppage/conupdatestatus_y.do?status=${consulting.status}&no=${consulting.no}">수락버튼</a></td>
-               <td><a href= "${contextPath}/startuppage/conupdatestatus_n.do?status=${consulting.status}&no=${consulting.no}">거절버튼</a></td>
-                   
           </tr>
         </c:forEach>
    </table>
@@ -104,14 +100,13 @@
           </thead>
 
        <tbody>
-          <c:forEach var="consulting" begin="0" end="2" items="${i_conlist}" >     
-               <tr align="center">
-               <td>${consulting.expname}</td>
-               <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
-                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">철회</button></td>
-                <td><a href= "${contextPath}/startuppage/conupdatestatus_y.do?status=${consulting.status}&no=${consulting.no}">완료버튼</a></td>
-          </tr>
-        </c:forEach>   
+		<c:forEach var="consulting" begin="0" end="2" items="${i_conlist}" >     
+			<tr align="center">
+				<td><a href="${contextPath }/viewOneConsulting.do?no=${consulting.no}">${consulting.expname}</a></td>
+				<td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
+				<td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">철회</button></td>
+			</tr>
+		</c:forEach>   
    </table>
 	<a href = "${contextPath}/startuppage/consulting_more_i.do">더보기</a>
 </div>
@@ -129,7 +124,7 @@
        <tbody>
           <c:forEach var="consulting" begin="0" end="2" items="${d_conlist}" >     
                <tr align="center">
-               <td>${consulting.expname}</td>
+               <td><a href="${contextPath }/viewOneConsulting.do?no=${consulting.no}">${consulting.expname}</a></td>
                <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
                 <td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">삭제</button></td>
           </tr>
@@ -138,8 +133,8 @@
 	<a href = "${contextPath}/startuppage/consulting_more_d.do">더보기</a>
 </div>
      <script src="${contextPath}/resources/js/jquery.min.js"></script>
-       <script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
-       <script src="${contextPath}/resources/js/popper.min.js"></script>
+     <script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+     <script src="${contextPath}/resources/js/popper.min.js"></script>
      <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.easing.1.3.js"></script>
      <script src="${contextPath}/resources/js/jquery.waypoints.min.js"></script>
@@ -148,8 +143,6 @@
      <script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
      <script src="${contextPath}/resources/js/scrollax.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-     <script src="${contextPath}/resources/js/google-map.js"></script>
      <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

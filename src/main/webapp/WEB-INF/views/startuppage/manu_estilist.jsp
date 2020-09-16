@@ -80,11 +80,9 @@
        <tbody>
           <c:forEach var="manu_esti" begin="0" end="2" items="${w_estilist}" >     
             <tr align="center">
-               <td><a href = "#">${manu_esti.manuname}</a></td>
+               <td><a href = "${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.manuname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">철회</button></td>
-               <td><a href= "${contextPath}/startuppage/updatestatus_y.do?status=${manu_esti.quotestatus}&no=${manu_esti.no}">수락버튼</a></td>
-               <td><a href= "${contextPath}/startuppage/updatestatus_n.do?status=${manu_esti.quotestatus}&no=${manu_esti.no}">거절버튼</a></td>
             </tr>
         </c:forEach>   
    </table>
@@ -105,10 +103,9 @@
        <tbody>
           <c:forEach var="manu_esti" begin="0" end="2" items="${i_estilist}" >     
                <tr align="center">
-               <td><a href = "#">${manu_esti.manuname}</a></td>
+               <td><a href = "${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.manuname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">철회</button></td>
-               <td><a href= "${contextPath}/startuppage/updatestatus_y.do?status=${manu_esti.quotestatus}&no=${manu_esti.no}">오빠완료버튼</a></td>
           </tr>
         </c:forEach>   
    </table>
@@ -129,7 +126,7 @@
        <tbody>
           <c:forEach var="manu_esti" begin="0" end="2" items="${d_estilist}" >     
                <tr align="center">
-               <td><a href = "#">${manu_esti.manuname}</a></td>
+               <td><a href = "${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.manuname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">삭제</button></td>
           </tr>
@@ -148,8 +145,6 @@
      <script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
      <script src="${contextPath}/resources/js/scrollax.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-     <script src="${contextPath}/resources/js/google-map.js"></script>
      <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>
