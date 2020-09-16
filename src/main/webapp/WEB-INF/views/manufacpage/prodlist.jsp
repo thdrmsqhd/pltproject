@@ -59,7 +59,7 @@
 <body>
    
    <div class="container">
-   <h3>대기중인 견적</h3>
+   <h3>대기중인 발주</h3>
       <table class="table">
           <thead id="thead-c">
             <tr>        
@@ -70,13 +70,13 @@
           </thead>
 
        <tbody>
-          <c:forEach var="manu_prod" begin="0" end="2" items="${prodlist}" >     
+          <c:forEach var="manu_prod" begin="0" end="2" items="${w_prodlist}" >     
                <tr align="center">
-               <c:if test = "${manu_prod.orderstatus==0}">
+              
                <td>${manu_prod.compname}</td>
                <td><fmt:formatDate value="${manu_prod.reqorder}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+               
           </tr>
         </c:forEach>   
    </table>
@@ -95,13 +95,12 @@
           </thead>
 
        <tbody>
-         <c:forEach var="manu_prod" begin="0" end="2" items="${prodlist}" >     
+         <c:forEach var="manu_prod" begin="0" end="2" items="${i_prodlist}" >     
                <tr align="center">
-               <c:if test = "${manu_prod.orderstatus==1}">
                <td>${manu_prod.compname}</td>
                <td><fmt:formatDate value="${manu_prod.reqorder}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+               
           </tr>
         </c:forEach>   
    </table>
@@ -120,13 +119,13 @@
           </thead>
 
        <tbody>
-         <c:forEach var="manu_prod" begin="0" end="2" items="${prodlist}" >     
+         <c:forEach var="manu_prod" begin="0" end="2" items="${c_prodlist}" >     
                <tr align="center">
-               <c:if test = "${manu_prod.orderstatus==2}">
+               
                <td>${manu_prod.compname}</td>
                <td><fmt:formatDate value="${manu_prod.reqorder}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+               
           </tr>
         </c:forEach>   
    </table>
@@ -144,13 +143,13 @@
           </thead>
 
        <tbody>
-        <c:forEach var="manu_prod" begin="0" end="2" items="${prodlist}" >     
+        <c:forEach var="manu_prod" begin="0" end="2" items="${s_prodlist}" >     
                <tr align="center">
-               <c:if test = "${manu_prod.orderstatus==3}">
+              
                <td>${manu_prod.compname}</td>
                <td><fmt:formatDate value="${manu_prod.reqorder}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+               
           </tr>
         </c:forEach>   
    </table>
@@ -168,13 +167,13 @@
           </thead>
 
        <tbody>
-          <c:forEach var="manu_esti" begin="0" end="2" items="${estilist}" >     
+          <c:forEach var="manu_esti" begin="0" end="2" items="${d_estilist}" >     
                <tr align="center">
-               <c:if test = "${manu_esti.quotestatus==4}">
+               
                <td>${manu_esti.compname}</td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+               
           </tr>
         </c:forEach>   
    </table>

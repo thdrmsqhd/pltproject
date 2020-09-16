@@ -47,11 +47,11 @@
         }
         
     </style>
-	<script>
+		<script>
 	function del(no) {
-		var chk = confirm("철회하시겠습니까?");
+		var chk = confirm("삭제하시겠습니까?");
 		if (chk) {
-			location.href="${contextPath}/manufacpage/estilist_del.do?no="+no;
+			location.href="${contextPath}/expertpage/com_estilist_del.do?no="+no;
 			
 		}
 	}	
@@ -61,41 +61,39 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
     
-<title>제조업체 페이지 견적 현황</title>
+<title>제조업체 페이지 컨설팅 완료내역</title>
 </head>
 
 <body>
    
    <div class="container">
-   <h3>진행중인 견적</h3>
+   <h3>컨설팅 완료</h3>
       <table class="table">
           <thead id="thead-c">
             <tr>        
                 <th>스타트업명</th>
-                <th>견적 신청 날짜</th>
+                <th>컨설팅 신청 날짜</th>
                 <th></th>
             </tr>
           </thead>
 
        <tbody>
-          <c:forEach var="manu_esti" items="${i_estiList}" >     
-               <tr align="center">
-               <c:if test = "${manu_esti.quotestatus==1}">
-               <td><a href="#">${manu_esti.compname}</a></td>
-               <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${no})">철회</button></td>
-               <td><a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${manu_esti.quotestatus}&no=${manu_esti.no}">오빠완료버튼</a></td>
-               </c:if>
-          </tr>
-        </c:forEach>   
+          <c:forEach var="manu_esti" items="${c_conlist}" > 
+             <tr align="center">
+               <td>${manu_esti.expname}</td>
+               <td><fmt:formatDate value="${manu_esti.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
+               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">삭제</button></td>
+             </tr>
+        </c:forEach>
    </table>
+  
 </div>
-    <div class="row mt-5">
+<div class="row mt-5">
           <div class="col text-center">
             <div class="block-27">
               <ul>
               	<c:if test="${pagevo.startPage != 1}">
-	                <li><a href="${contextPath}/manufacpage/estilist_more_w.do?nowPage=${pagevo.startPage-1}&cntPerPage=${pagevo.cntPerPage}">&lt;</a></li>
+	                <li><a href="${contextPath}/com_consulting/com_consulting.do?nowPage=${pagevo.startPage-1}&cntPerPage=${pagevo.cntPerPage}">&lt;</a></li>
 	            </c:if>
 	            <c:forEach begin = "${pagevo.startPage}" end = "${pagevo.endPage}" var="idx">
 	            	<c:choose>
@@ -103,7 +101,7 @@
 	                <li class="active"><span> ${idx} </span></li>
 	                </c:when>
 	                <c:when test="${idx != pagevo.nowPage}">
-	                <li><a href="${contextPath}/manufacpage/estilist_more_w.do?nowPage=${idx}&cntPerPage=${pagevo.cntPerPage}"> ${idx} </a></li>
+	                <li><a href="${contextPath}/com_consulting/com_consulting.do?nowPage=${idx}&cntPerPage=${pagevo.cntPerPage}"> ${idx} </a></li>
 	                </c:when>
 	         <%--      
 	                <li><a href="#">3</a></li>
@@ -112,7 +110,7 @@
 	                </c:choose>
 	             </c:forEach>
 	              <c:if test="${pagevo.endPage != pagevo.lastPage}">
-	                <li><a href="${contextPath}/manufacpage/estilist_more_w.do?nowPage=${pagevo.endPage+1 }&cntPerPage=${pagevo.cntPerPage}">&gt;</a></li>
+	                <li><a href="${contextPath}/com_consulting/com_consulting.do?nowPage=${pagevo.endPage+1 }&cntPerPage=${pagevo.cntPerPage}">&gt;</a></li>
 	              </c:if>
               </ul>
               
