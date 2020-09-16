@@ -1,4 +1,4 @@
-package com.spring.plt.startuppage.service;
+package com.spring.platform.startuppage.service;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.spring.plt.startuppage.dao.StartupPageDAO;
-import com.spring.plt.startuppage.vo.PageVO;
-import com.spring.plt.startuppage.vo.StartupPageVO;
+import com.spring.platform.startuppage.dao.StartupPageDAO;
+import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.startuppage.vo.StartupPageVO;
 
 @Service("startuppageservice")
 public class StartupPageServiceImpl implements StartupPageService{

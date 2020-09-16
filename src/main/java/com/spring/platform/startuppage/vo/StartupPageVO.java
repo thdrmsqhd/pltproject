@@ -1,10 +1,10 @@
-package com.spring.plt.startuppage.vo;
+package com.spring.platform.startuppage.vo;
 
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
-@Component("startuppagevo")
+@Component
 public class StartupPageVO {
 	int no;
 	String compid;

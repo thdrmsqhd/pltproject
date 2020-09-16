@@ -1,9 +1,9 @@
-package com.spring.plt.manufacPage.service;
+package com.spring.platform.manufacPage.service;
 
 import java.util.List;
 
-import com.spring.plt.manufacPage.vo.ManufacVO;
-import com.spring.plt.startuppage.vo.PageVO;
+import com.spring.platform.manufacPage.vo.ManufacVO;
+import com.spring.platform.startuppage.vo.PageVO;
 
 public interface ManufacService {
 

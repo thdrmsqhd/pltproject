@@ -1,4 +1,4 @@
-package com.spring.plt.manufacPage.service;
+package com.spring.platform.manufacPage.service;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.spring.plt.manufacPage.vo.ManufacVO;
-import com.spring.plt.startuppage.vo.PageVO;
-import com.spring.plt.manufacPage.dao.ManufacDAO;
-import com.spring.plt.manufacPage.service.ManufacService;
+import com.spring.platform.manufacPage.vo.ManufacVO;
+import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.manufacPage.dao.ManufacDAO;
+import com.spring.platform.manufacPage.service.ManufacService;
 
 
 @Service("manufacservice")

@@ -1,4 +1,4 @@
-package com.spring.plt.manufacPage.dao;
+package com.spring.platform.manufacPage.dao;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.spring.plt.manufacPage.dao.ManufacDAO;
-import com.spring.plt.manufacPage.vo.ManufacVO;
-import com.spring.plt.startuppage.vo.PageVO;
+import com.spring.platform.manufacPage.dao.ManufacDAO;
+import com.spring.platform.manufacPage.vo.ManufacVO;
+import com.spring.platform.startuppage.vo.PageVO;
 
 @Repository("manufacdao")
 public class ManufacDAOImpl implements ManufacDAO{

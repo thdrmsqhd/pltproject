@@ -1,4 +1,4 @@
-package com.spring.plt.manufacPage.controller;
+package com.spring.platform.manufacPage.controller;
 
 public interface ManufacController {
 

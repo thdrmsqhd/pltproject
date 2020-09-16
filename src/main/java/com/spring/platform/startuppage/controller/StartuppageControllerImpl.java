@@ -1,4 +1,4 @@
-package com.spring.plt.startuppage.controller;
+package com.spring.platform.startuppage.controller;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.plt.startuppage.service.StartupPageService;
-import com.spring.plt.startuppage.vo.PageVO;
-import com.spring.plt.startuppage.vo.StartupPageVO;
+import com.spring.platform.startuppage.service.StartupPageService;
+import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.startuppage.vo.StartupPageVO;
 
 @Controller("startuppagecontroller")
 public class StartuppageControllerImpl implements StartuppageController{

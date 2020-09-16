@@ -1,4 +1,4 @@
-package com.spring.plt.startuppage.controller;
+package com.spring.platform.startuppage.controller;
 
 public interface StartuppageController {
 

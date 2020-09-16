@@ -1,9 +1,9 @@
-package com.spring.plt.manufacPage.vo;
+package com.spring.platform.manufacPage.vo;
 
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
-@Component("manufacvo")
+@Component
 public class ManufacVO {
 	String compname;
 	Date reqquote;

@@ -1,4 +1,4 @@
- package com.spring.plt.startuppage.vo;
+ package com.spring.platform.startuppage.vo;
 import org.springframework.stereotype.Component;
 
 @Component("pagevo")

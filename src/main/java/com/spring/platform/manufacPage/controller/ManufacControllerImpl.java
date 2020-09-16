@@ -1,4 +1,4 @@
-package com.spring.plt.manufacPage.controller;
+package com.spring.platform.manufacPage.controller;
 
 import java.net.InetAddress;
 import java.util.List;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.plt.manufacPage.service.ManufacService;
-import com.spring.plt.manufacPage.vo.ManufacVO;
-import com.spring.plt.startuppage.vo.PageVO;
+import com.spring.platform.manufacPage.service.ManufacService;
+import com.spring.platform.manufacPage.vo.ManufacVO;
+import com.spring.platform.startuppage.vo.PageVO;
 
 @Controller("manufaccontroller")
 public class ManufacControllerImpl implements ManufacController{

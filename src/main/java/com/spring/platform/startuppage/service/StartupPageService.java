@@ -1,11 +1,11 @@
-package com.spring.plt.startuppage.service;
+package com.spring.platform.startuppage.service;
 
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.spring.plt.startuppage.vo.PageVO;
-import com.spring.plt.startuppage.vo.StartupPageVO;
+import com.spring.platform.startuppage.vo.PageVO;
+import com.spring.platform.startuppage.vo.StartupPageVO;
 
 public interface StartupPageService {
 	public int deleteesti(int no) throws Exception;
