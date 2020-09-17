@@ -185,24 +185,36 @@
 	                                                </div>
                                             	</div>
                                             </c:if>
-                                            <c:if test="${member.type == 'manufac'}">
+                                            <!--<c:if test="${member.type == 'manufac'}"> 로그인 기능 결합 되면 주석 해제-->
+                                            <!--</c:if>-->
+                                           	<c:if test="${quotationVO.quoteStatus != 4 }">
 	                                           	<div class="col-md-12">
-	                                               	<div class="form-group">
-	                                                   	<input type="submit" value="Quotation accept" class="btn btn-primary">
-	                                                   <div class="submitting"></div>
-	                                               	</div>
-	                                               	<div class="form-group">
-	                                                   	<input type="submit" value="Quotation reject" class="btn btn-primary">
-	                                                   <div class="submitting"></div>
-	                                               </div>
+		                                            <c:if test="${quotationVO.quoteStatus == 0 }">
+		                                               	<div class="form-group" style="display: inline-block;">
+		                                                   <a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-info">Quotation accept</a>
+		                                                   <div class="submitting"></div>
+		                                               	</div>
+		                                               	<div class="form-group" style="display: inline-block;">
+		                                                   	<a href= "${contextPath}/manufacpage/estilist_updatestatus_de.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-primary">Quotation reject</a>
+		                                                   <div class="submitting"></div>
+		                                               </div>
+		                                            </c:if>
+		                                            <c:if test="${quotationVO.quoteStatus == 1 }">
+		                                               <div class="form-group">
+		                                                   <a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-primary">Quotation complete</a>
+		                                                   <div class="submitting"></div>
+		                                               </div>
+	                                                </c:if>
 	                                            </div>
+	                                            <c:if test="${quotationVO.quoteStatus !=0 && quotationVO.quoteStatus !=1 && quotationVO.quoteStatus !=2 && quotationVO.quoteStatus != 3 && quotationVO.quoteStatus != 4}">
+		                                            <div class="col-md-12">
+		                                                <div class="form-group">
+		                                                    <input type="submit" value="Send Quotation" class="btn btn-primary">
+		                                                    <div class="submitting"></div>
+		                                                </div>
+		                                            </div>
+	                                            </c:if>
                                             </c:if>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="submit" value="Send Quotation" class="btn btn-primary">
-                                                    <div class="submitting"></div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -233,27 +245,11 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
         <script src="${contextPath }/resources/js/main.js"></script>
 		<script>
-			var form = document.querySelector(".contactForm")
-			var btn = document.querySelector(".btn-primary")
+			
 			var price = document.querySelector(".price")
 			var vat = document.querySelector(".vat")
 			
-			btn.addEventListener("click",function(e){
-				e.preventDefault()
-				var btnValue = e.target.value;
-				if(btnValue === "Quotation accept"){
-					form.action = '';/*민선이 기능으로 가야함 상태 변경 기능*/
-					form.submit()
-				}else if(btnValue === "Quotation reject"){/*민선이 기능으로 가야함 상태 거절 기능*/
-					form.action = '';
-					form.submit()
-				}else if(btnValue === "Quotation withdrawal"){/*민선이 기능으로 가야함 상태 거절 기능*/
-					form.action = '';
-					form.submit()
-				}else{
-					history.back();
-				}
-			})
+			
 			
 			addEventListener("load",function(e){
 				vat.value = Math.round(price.value/10)

@@ -81,7 +81,7 @@
           <c:forEach var="manu_esti" items="${d_estiList}" >     
                <tr align="center">
                <c:if test = "${manu_esti.quotestatus==4}">
-               <td><a href="#">${manu_esti.compname}</a></td>
+               <td><a href="${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.compname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${no})">삭제</button></td>
                </c:if>
@@ -129,8 +129,6 @@
      <script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
      <script src="${contextPath}/resources/js/scrollax.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-     <script src="${contextPath}/resources/js/google-map.js"></script>
      <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

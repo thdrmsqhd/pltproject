@@ -49,7 +49,7 @@
     </style>
 	<script>
 	function del(no) {
-		var chk = confirm("철회하시겠습니까?");
+		var chk = confirm("삭제 하시겠습니까?");
 		if (chk) {
 			location.href="${contextPath}/manufacpage/estilist_del.do?no="+no;
 			
@@ -80,11 +80,9 @@
        <tbody>
           <c:forEach var="manu_esti" begin='0' end='2' items="${w_estiList}" >     
                <tr align="center">
-               <td><a href="#">${manu_esti.compname}</a></td>
+               <td><a href="${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.compname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">철회</button></td>
-               <td><a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${manu_esti.quotestatus}&no=${manu_esti.no}">수락버튼</a></td>
-               <td><a href= "${contextPath}/manufacpage/estilist_updatestatus_de.do?quotestatus=${manu_esti.quotestatus}&no=${manu_esti.no}">거절버튼</a></td>
           	   </tr>
         </c:forEach>
         </tbody>   
@@ -104,16 +102,14 @@
           </thead>
 
        <tbody>
-          <c:forEach var="manu_esti" begin="0" end="2" items="${i_estiList}" >     
-               <tr align="center">
-               <td><a href="#">${manu_esti.compname}</a></td>
+         <c:forEach var="manu_esti" begin="0" end="2" items="${i_estiList}" >     
+            <tr align="center">
+               <td><a href="${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.compname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">철회</button></td>
-
-               <td><a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${manu_esti.quotestatus}&no=${manu_esti.no}">오빠완료버튼</a></td>
-          </tr>
-        </c:forEach>
-        </tbody>   
+          	</tr>
+       	</c:forEach>
+       </tbody>   
    </table>
    <a href = "${contextPath}/manufacpage/estilist_more_ing.do">더보기</a>
 </div>
@@ -132,7 +128,7 @@
        <tbody>
           <c:forEach var="manu_esti" begin="0" end="2" items="${d_estiList}" >     
                <tr align="center">
-               <td><a href="#">${manu_esti.compname}</a></td>
+               <td><a href="${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.compname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">삭제</button></td>
           </tr>

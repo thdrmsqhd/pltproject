@@ -10,6 +10,7 @@
 		<typeAlias type="com.spring.platform.consulting.vo.ConsultingVO" alias="consultingVO"/>
 		<typeAlias type="com.spring.platform.production.vo.ProductionVO" alias="productionVO"/>
 		<typeAlias type="com.spring.platform.startuppage.vo.StartupPageVO"  alias="startuppagevo" />
+		<typeAlias type="com.spring.platform.manufacpage.vo.ManufacPageVO"  alias="ManufacPageVO" />
 		
 	</typeAliases>
 </configuration>
