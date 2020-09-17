@@ -129,11 +129,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
   <script src="${contextPath }/resources/js/main.js"></script>
   <script>
-        var serchArray = document.querySelectorAll("button");
-        var changeHtml ="";
-        console.log(serchArray)
-        var scrapArray = document.querySelectorAll(".scrapClass")
-        
+	  var serchArray = document.querySelectorAll("button");
+	  var changeHtml ="";
+	  console.log(serchArray)
+	  var scrapArray = document.querySelectorAll(".scrapClass")
+	  
+	  for(var i = 0 ; i<scrapArray.length; i++){
+			
+			scrapArray[i].addEventListener("click",function(e){
+				var expertId = e.target.id
+				$.ajax({
+	          	url:"${contextPath}/scrap/scrapExpert.do",
+	          	type:"GET",
+	          	data:{"id":expertId},
+	          	dataType:"json",
+	          	success:function(data){
+	          		alert("스크랩에 추가하였습니다.")
+	          	}
+	          })
+			})
+		}
+	  
+	  
         for(var i = 0 ; i<scrapArray.length; i++){
 			
 			scrapArray[i].addEventListener("click",function(e){

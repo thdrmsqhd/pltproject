@@ -40,6 +40,7 @@
 				<div class="row">
 				<!-- 제조업체 -->
 				
+
 					
 					<c:forEach var="allScrap" items="${manuScrapList }">
 					<!-- for -->
@@ -53,7 +54,7 @@
 								<h3>${allScrap.manuName }</h3>
 								<div class="faded">
 									<p>${allScrap.manuBizType }<br>${allScrap.productPrice }</p>
-									<a href="${contextPath }/viewManuFac?id=${allScrap.manuid}" class="btn btn-primary">상세페이지</a>
+									<a href="${contextPath }/viewManufac?id=${allScrap.manuid}" class="btn btn-primary">상세페이지</a>
 									 
 	<!-- 
 									<ul class="ftco-social text-center">

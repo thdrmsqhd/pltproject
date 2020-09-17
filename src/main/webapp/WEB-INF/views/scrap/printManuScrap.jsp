@@ -29,9 +29,6 @@
 		<section class="ftco-section">
 			<div class="container">
 				
-				
-				
-				
 			
 
 				<div class="mt-5">
@@ -51,9 +48,9 @@
 								<h3>${manuScrap.manuName }</h3>
 								<div class="faded">
 									<p>${manuScrap.manuBizType }<br>${manuScrap.productPrice }</p>
-									<a href="${contextPath }/viewExpert?id=${manuScrap.expid }" class="btn btn-primary">상세페이지</a>
+									<a href="${contextPath }/viewManufac?id=${manuScrap.manuid }" class="btn btn-primary">상세페이지</a>
 									<a href="${contextPath }/scrap/deleteManuScrap.do?no=${manuScrap.no}" class="btn btn-primary">삭제</a>
-	<!-- 
+	<!-- sns 코드
 									<ul class="ftco-social text-center">
 	  	                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
