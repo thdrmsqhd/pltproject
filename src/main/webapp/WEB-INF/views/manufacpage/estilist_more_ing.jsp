@@ -78,13 +78,12 @@
           </thead>
 
        <tbody>
-          <c:forEach var="manu_esti" items="${estilist}" >     
-               <tr align="center">
+         <c:forEach var="manu_esti" items="${i_estiList}" >     
+          <tr align="center">
                <c:if test = "${manu_esti.quotestatus==1}">
-               <td><a href="#">${manu_esti.compname}</a></td>
-               <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${no})">철회</button></td>
-               <td><a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${manu_esti.quotestatus}&compname=${manu_esti.compname}">수정하기</a></td>
+	               <td><a href="${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.compname}</a></td>
+	               <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
+	               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${no})">철회</button></td>
                </c:if>
           </tr>
         </c:forEach>   

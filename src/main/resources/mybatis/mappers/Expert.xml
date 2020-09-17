@@ -34,9 +34,22 @@
 		]]>
 	</select>
 	
-	<select id="allExpert" resultMap="expertResult">
+	<select id="allExpert" resultMap="expertResult" parameterType="expertVO">
 		<![CDATA[
-			select * from expert
+			SELECT * 
+			FROM ( 
+			  SELECT ROW_NUMBER() OVER(ORDER BY rownum asc) AS RNUM, expert.* 
+			  FROM expert
+			)
+			WHERE RNUM BETWEEN #{start} AND #{end} ORDER BY rownum desc
 		]]>
 	</select>
+	
+	<select id="listCount" resultType="int">
+		<![CDATA[
+			select count(*) from expert
+		]]>
+	</select>
+	
+	
 </mapper>

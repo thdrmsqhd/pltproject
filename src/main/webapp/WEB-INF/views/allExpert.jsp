@@ -35,8 +35,8 @@
 		    				<div class="book-wrap">
 		    					<div class="img d-flex justify-content-end w-100" style="background-image: url(${contextPath }/resources/images/book-1.jpg);">
 		    						<div class="in-text">
-		    							<a href="#" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Add to Wishlist">
-		    								<span class="flaticon-heart-1"></span>
+		    							<a id="${expert.id }" class="icon d-flex align-items-center justify-content-center scrapClass" data-toggle="tooltip" data-placement="left" title="scrap">
+		    								<span id="${expert.id }" class="flaticon-heart-1"></span>
 		    							</a>
 		    							<a href="${contextPath }/viewExpert?id=${expert.id }" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Quick View">
 		    								<span class="flaticon-search"></span>
@@ -44,7 +44,7 @@
 		    						</div>
 		    					</div>
 		    					<div class="text px-4 py-3 w-100">
-		    						<h2><a href="${contextPath }/viewExpert?id= ${expert.id }"> ${expert.expName }</a></h2>
+		    						<h2><a href="${contextPath }/viewExpert?id=${expert.id }"> ${expert.expName }</a></h2>
 		    						<p> ${expert.expBizField }</p>
 		    					</div>
 		    				</div>
@@ -52,21 +52,30 @@
 						<!--한칸-->
 					</c:forEach>
 		    		</div>
-		    		<div class="row mt-5">
+	    		<div class="row mt-5">
 		          <div class="col">
 		            <div class="block-27"><!--페이징처리-->
 		              <ul>
-		                <li><a href="#">&lt;</a></li>
-		                <li class="active"><span>1</span></li>
-		                <li><a href="#">2</a></li>
-		                <li><a href="#">3</a></li>
-		                <li><a href="#">4</a></li>
-		                <li><a href="#">5</a></li>
-		                <li><a href="#">&gt;</a></li>
-		              </ul>
-		            </div><!--페이징처리-->
-		          </div>
-		        </div>
+             			<c:if test="${pageVO.startPage != 1}">
+               				<li><a href="${contextPath}/allExpert?nowPage=${pageVO.startPage -1}&cntPerPage=${pageVO.cntPerPage}">&lt;</a></li>
+           				</c:if>
+           				<c:forEach begin = "${pageVO.startPage}" end = "${pageVO.endPage}" var="idx">
+	               			<c:choose>
+	                			<c:when test="${idx == pageVO.nowPage }">
+	                 				<li class="active"><span> ${idx} </span></li>
+	                 			</c:when>
+	                 			<c:when test="${idx != pageVO.nowPage}">
+	                 				<li><a href="${contextPath}/allExpert?nowPage=${idx}&cntPerPage=${pageVO.cntPerPage}"> ${idx} </a></li>
+	                			</c:when>
+	                  		</c:choose>
+            			</c:forEach>
+            			<c:if test="${pageVO.endPage != pageVO.lastPage }">
+                			<li><a href="${contextPath }/allExpert?nowPage=${pageVO.endPage +1 }&cntPerPage=${pageVO.cntPerPage}">&gt;</a></li>
+            			</c:if>
+        			</ul>
+	            </div><!--페이징처리-->
+	          </div>
+	        </div>
           </div> <!-- .col-md-8 -->
 
           <div class="col-lg-3 sidebar pl-lg-3 ftco-animate">
@@ -120,9 +129,43 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
   <script src="${contextPath }/resources/js/main.js"></script>
   <script>
-        var serchArray = document.querySelectorAll("button");
-        var changeHtml ="";
-        console.log(serchArray)
+	  var serchArray = document.querySelectorAll("button");
+	  var changeHtml ="";
+	  console.log(serchArray)
+	  var scrapArray = document.querySelectorAll(".scrapClass")
+	  
+	  for(var i = 0 ; i<scrapArray.length; i++){
+			
+			scrapArray[i].addEventListener("click",function(e){
+				var expertId = e.target.id
+				$.ajax({
+	          	url:"${contextPath}/scrap/scrapExpert.do",
+	          	type:"GET",
+	          	data:{"id":expertId},
+	          	dataType:"json",
+	          	success:function(data){
+	          		alert("스크랩에 추가하였습니다.")
+	          	}
+	          })
+			})
+		}
+	  
+	  
+        for(var i = 0 ; i<scrapArray.length; i++){
+			
+			scrapArray[i].addEventListener("click",function(e){
+				var expertId = e.target.id
+				$.ajax({
+	            	url:"${contextPath}/scrap/scrapExpert.do",
+	            	type:"GET",
+	            	data:{"id":expertId},
+	            	dataType:"json",
+	            	success:function(data){
+	            		console.log("success")
+	            	}
+	            });
+			})
+		}
         
         for(var i = 0 ; i<serchArray.length; i++){
             serchArray[i].addEventListener("click",function(e){

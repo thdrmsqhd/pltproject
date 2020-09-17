@@ -47,7 +47,15 @@
         }
         
     </style>
-
+	<script>
+	function del(no) {
+		var chk = confirm("철회하시겠습니까?");
+		if (chk) {
+			location.href="${contextPath}/startuppage/estilist_del.do?no="+no;
+			
+		}
+	}	
+	</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
@@ -70,17 +78,15 @@
           </thead>
 
        <tbody>
-          <c:forEach var="manu_esti" begin="0" end="2" items="${estilist}" >     
-               <tr align="center">
-               <c:if test = "${manu_esti.quotestatus==0}">
-               <td>${manu_esti.manuname}</td>
+          <c:forEach var="manu_esti" begin="0" end="2" items="${w_estilist}" >     
+            <tr align="center">
+               <td><a href = "${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.manuname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
-          </tr>
+               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">철회</button></td>
+            </tr>
         </c:forEach>   
    </table>
-   <a href = "#">더보기</a>
+   <a href= "${contextPath}/startuppage/estilist_more_w.do">더보기</a>
 </div>
  
    <div class="container">
@@ -95,17 +101,15 @@
           </thead>
 
        <tbody>
-          <c:forEach var="manu_esti" begin="0" end="2" items="${estilist}" >     
+          <c:forEach var="manu_esti" begin="0" end="2" items="${i_estilist}" >     
                <tr align="center">
-               <c:if test = "${manu_esti.quotestatus==1}">
-               <td>${manu_esti.manuname}</td>
+               <td><a href = "${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.manuname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">철회</button></td>
           </tr>
         </c:forEach>   
    </table>
-   <a href = "#">더보기</a>
+   <a href = "${contextPath}/startuppage/estilist_more_ing.do">더보기</a>
 </div>
 
    <div class="container">
@@ -120,17 +124,15 @@
           </thead>
 
        <tbody>
-          <c:forEach var="manu_esti" begin="0" end="2" items="${estilist}" >     
+          <c:forEach var="manu_esti" begin="0" end="2" items="${d_estilist}" >     
                <tr align="center">
-               <c:if test = "${manu_esti.quotestatus==4}">
-               <td>${manu_esti.manuname}</td>
+               <td><a href = "${contextPath }/viewOneQuotation.do?no=${manu_esti.no}">${manu_esti.manuname}</a></td>
                <td><fmt:formatDate value="${manu_esti.reqquote}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${manu_esti.no})">삭제</button></td>
           </tr>
         </c:forEach>   
    </table>
-   <a href = "#">더보기</a>
+   <a href = "${contextPath}/startuppage/estilist_more_de.do">더보기</a>
 </div> 
      <script src="${contextPath}/resources/js/jquery.min.js"></script>
        <script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
@@ -143,8 +145,6 @@
      <script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
      <script src="${contextPath}/resources/js/scrollax.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-     <script src="${contextPath}/resources/js/google-map.js"></script>
      <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

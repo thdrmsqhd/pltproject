@@ -47,7 +47,15 @@
         }
         
     </style>
-
+		<script>
+	function del(no) {
+		var chk = confirm("철회하시겠습니까?");
+		if (chk) {
+			location.href="${contextPath}/startuppage/conlist_del.do?no="+no;
+			
+		}
+	}	
+</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
@@ -70,19 +78,15 @@
           </thead>
 
        <tbody>
-          <c:forEach var="consulting" begin="0" end="2" items="${conlist}" > 
-          	 
+          <c:forEach var="consulting" begin="0" end="2" items="${w_conlist}" > 
                <tr align="center">
-               <c:if test = "${consulting.status==0}">
-               <td>${consulting.expname}</td>
+               <td><a href="${contextPath }/viewOneConsulting.do?no=${consulting.no}">${consulting.expname}</a></td>
                <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-                   
-               </c:if>
+               <td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">철회</button></td>
           </tr>
         </c:forEach>
    </table>
- 
+ 	<a href = "${contextPath}/startuppage/consulting_more_w.do">더보기</a>
 </div>
    <div class="container">
    <h3>진행중인 견적</h3>
@@ -96,17 +100,15 @@
           </thead>
 
        <tbody>
-          <c:forEach var="consulting" begin="0" end="2" items="${conlist}" >     
-               <tr align="center">
-               <c:if test = "${consulting.status==1}">
-               <td>${consulting.expname}</td>
-               <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
-          </tr>
-        </c:forEach>   
+		<c:forEach var="consulting" begin="0" end="2" items="${i_conlist}" >     
+			<tr align="center">
+				<td><a href="${contextPath }/viewOneConsulting.do?no=${consulting.no}">${consulting.expname}</a></td>
+				<td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
+				<td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">철회</button></td>
+			</tr>
+		</c:forEach>   
    </table>
-
+	<a href = "${contextPath}/startuppage/consulting_more_i.do">더보기</a>
 </div>
    <div class="container">
    <h3>거절된 견적</h3>
@@ -120,21 +122,19 @@
           </thead>
 
        <tbody>
-          <c:forEach var="consulting" begin="0" end="2" items="${conlist}" >     
+          <c:forEach var="consulting" begin="0" end="2" items="${d_conlist}" >     
                <tr align="center">
-               <c:if test = "${consulting.status==4}">
-               <td>${consulting.expname}</td>
+               <td><a href="${contextPath }/viewOneConsulting.do?no=${consulting.no}">${consulting.expname}</a></td>
                <td><fmt:formatDate value="${consulting.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
-               <td><button type="button" class="btn btn-outline-secondary">철회</button></td>
-               </c:if>
+                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${consulting.no})">삭제</button></td>
           </tr>
         </c:forEach>   
    </table>
-
+	<a href = "${contextPath}/startuppage/consulting_more_d.do">더보기</a>
 </div>
      <script src="${contextPath}/resources/js/jquery.min.js"></script>
-       <script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
-       <script src="${contextPath}/resources/js/popper.min.js"></script>
+     <script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+     <script src="${contextPath}/resources/js/popper.min.js"></script>
      <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.easing.1.3.js"></script>
      <script src="${contextPath}/resources/js/jquery.waypoints.min.js"></script>
@@ -143,8 +143,6 @@
      <script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
      <script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
      <script src="${contextPath}/resources/js/scrollax.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-     <script src="${contextPath}/resources/js/google-map.js"></script>
      <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>
