@@ -80,11 +80,9 @@
        <tbody>
           <c:forEach var="cons_esti" items="${w_conlist}" >     
                <tr align="center">
-               <td><a href="#">${cons_esti.expname}</a></td>
+               <td><a href="${contextPath }/viewOneConsulting.do?no=${cons_esti.no }">${cons_esti.expname}</a></td>
                <td><fmt:formatDate value="${cons_esti.reqdate}" pattern="yy-MM-dd  kk:MM"/></td>
                <td><button type="button" class="btn btn-outline-secondary" onclick="del(${cons_esti.no})">철회</button></td>
-               <td><a href= "${contextPath}/expertpage/updatestatus_y.do?status=${cons_esti.status}&no=${cons_esti.no}">수락버튼</a></td>
-               <td><a href= "${contextPath}/expertpage/updatestatus_n.do?status=${cons_esti.status}&no=${cons_esti.no}">거절버튼</a></td>
           </tr>
         </c:forEach>   
    </table>

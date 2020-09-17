@@ -187,34 +187,24 @@
                                             </c:if>
                                             <!--<c:if test="${member.type == 'manufac'}"> 로그인 기능 결합 되면 주석 해제-->
                                             <!--</c:if>-->
-                                           	<c:if test="${quotationVO.quoteStatus != 4 }">
-	                                           	<div class="col-md-12">
-		                                            <c:if test="${quotationVO.quoteStatus == 0 }">
-		                                               	<div class="form-group" style="display: inline-block;">
-		                                                   <a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-info">Quotation accept</a>
-		                                                   <div class="submitting"></div>
-		                                               	</div>
-		                                               	<div class="form-group" style="display: inline-block;">
-		                                                   	<a href= "${contextPath}/manufacpage/estilist_updatestatus_de.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-primary">Quotation reject</a>
-		                                                   <div class="submitting"></div>
-		                                               </div>
-		                                            </c:if>
-		                                            <c:if test="${quotationVO.quoteStatus == 1 }">
-		                                               <div class="form-group">
-		                                                   <a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-primary">Quotation complete</a>
-		                                                   <div class="submitting"></div>
-		                                               </div>
-	                                                </c:if>
-	                                            </div>
-	                                            <c:if test="${quotationVO.quoteStatus !=0 && quotationVO.quoteStatus !=1 && quotationVO.quoteStatus !=2 && quotationVO.quoteStatus != 3 && quotationVO.quoteStatus != 4}">
-		                                            <div class="col-md-12">
-		                                                <div class="form-group">
-		                                                    <input type="submit" value="Send Quotation" class="btn btn-primary">
-		                                                    <div class="submitting"></div>
-		                                                </div>
-		                                            </div>
+                                           	<div class="col-md-12">
+	                                            <c:if test="${quotationVO.quoteStatus == 0 }">
+	                                               	<div class="form-group" style="display: inline-block;">
+	                                                   <a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-info">Quotation accept</a>
+	                                                   <div class="submitting"></div>
+	                                               	</div>
+	                                               	<div class="form-group" style="display: inline-block;">
+	                                                   	<a href= "${contextPath}/manufacpage/estilist_updatestatus_de.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-primary">Quotation reject</a>
+	                                                   <div class="submitting"></div>
+	                                               </div>
 	                                            </c:if>
-                                            </c:if>
+	                                            <c:if test="${quotationVO.quoteStatus == 1 }">
+	                                               <div class="form-group">
+	                                                   <a href= "${contextPath}/manufacpage/estilist_updatestatus.do?quotestatus=${quotationVO.quoteStatus}&no=${quotationVO.no}" class="btn btn-primary">Quotation complete</a>
+	                                                   <div class="submitting"></div>
+	                                               </div>
+                                                </c:if>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

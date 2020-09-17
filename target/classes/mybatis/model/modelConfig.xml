@@ -11,6 +11,6 @@
 		<typeAlias type="com.spring.platform.production.vo.ProductionVO" alias="productionVO"/>
 		<typeAlias type="com.spring.platform.startuppage.vo.StartupPageVO"  alias="startuppagevo" />
 		<typeAlias type="com.spring.platform.manufacpage.vo.ManufacPageVO"  alias="ManufacPageVO" />
-		
+		<typeAlias type="com.spring.platform.expertpage.vo.ExpertPageVO"  alias="expertPageVO" />
 	</typeAliases>
 </configuration>
