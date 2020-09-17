@@ -13,5 +13,6 @@
 		<typeAlias type="com.spring.platform.manufacpage.vo.ManufacPageVO"  alias="ManufacPageVO" />
 		<typeAlias type="com.spring.platform.expertpage.vo.ExpertPageVO"  alias="expertPageVO" />
 		<typeAlias type="com.spring.platform.scrap.vo.ScrapVO" alias="scrapVO"/>
+		<typeAlias type="com.spring.platform.alluser.vo.AlluserVO" alias="alluserVO"/>
 	</typeAliases>
 </configuration>
