@@ -22,9 +22,15 @@ public class MyPageControllerImpl implements MyPageController{
 		String viewName = request.getParameter("viewName");
 		ModelAndView mav = new ModelAndView(viewName);
 		//제조업체, 전문가 , 스타트업 정보를 가져온다.
-		//스크랩 리스트를 가져온다.
-		//견적 ,발주, 컨설팅 현황을 가져온다.
-//		mav.addObject(attributeName, attributeValue);
+		//String session = request.getSession();
+		//String userId = session.getAttribute("member");
+		String userId = "op3838";
+		//아이디로 allUser테이블에서 유저의 타입을 찾는다.
+		//가져온 아이디의 타입으로 vo를 조회 한다.
+		
+		// 아이디에 해당하는 스크랩 리스트를 가져온다.
+		// 아이디에 해당하는 견적 ,발주, 컨설팅 현황을 가져온다.
+		//mav.addObject(attributeName, attributeValue); 스크랩, 견적, 컨설팅 현황을 모델에 담는다.
 		return mav;
 	}
 }
