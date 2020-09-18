@@ -16,23 +16,12 @@
 		]]>
 	</select>
 	
-	<select id="getManuScrap" parameterType="String" resultType="ScrapVO">
-		<![CDATA[
-			select * from manuscrap where compid = #{userId}
-		]]>
-	</select>
-	
-	<select id="getExpertScrap" parameterType="String" resultType="ScrapVO">
-		<![CDATA[
-			select * from expertscrap where compid = #{userId}
-		]]>
-	</select>
-	
 	<select id="getQuotation" parameterType="String" resultType="QuotationVO">
 		<![CDATA[
 			
 		]]>
 	</select>
+	
 	<select id="getConsulting" parameterType="String" resultType="ConsultingVO">
 		<![CDATA[
 			
