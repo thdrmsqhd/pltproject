@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias type="com.spring.platform.manufac.vo.ManufacVO" alias="ManufacVO"/>
 		<typeAlias type="com.spring.platform.expert.vo.ExpertVO" alias="expertVO"/>
+		<typeAlias type="com.spring.platform.startup.vo.StartUpVO" alias="startupVO"/>
 		<typeAlias type="com.spring.platform.quotation.vo.QuotationVO" alias="quotationVO"/>
 		<typeAlias type="com.spring.platform.consulting.vo.ConsultingVO" alias="consultingVO"/>
 		<typeAlias type="com.spring.platform.production.vo.ProductionVO" alias="productionVO"/>

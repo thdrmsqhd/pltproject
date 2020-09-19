@@ -30,7 +30,7 @@ public class ManufacSearchConrollerImpl implements ManufacSearchController{
 	@Autowired
 	ManufacVO manufacVO;
 	
-	@RequestMapping(value="/allManufac")
+	@RequestMapping(value="/allManufac.do")
 	@Override
 	public ModelAndView allManufac(PageVO pageVO, @RequestParam(value="nowPage", required = false) String nowPage, @RequestParam(value="cntPerPage", required=false)String cntPerPage,HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ManuFac Controller allManuFac");
@@ -54,6 +54,7 @@ public class ManufacSearchConrollerImpl implements ManufacSearchController{
 		ModelAndView mav = new ModelAndView(viewName);//ºä ¼³Á¤ÇÒ°Í 
 		mav.addObject("manufacList",manufacList);
 		mav.addObject("pageVO", pageVO);
+		System.out.println(mav);
 		return mav;
 	}
 	
